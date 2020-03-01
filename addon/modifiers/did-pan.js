@@ -1,5 +1,5 @@
 import Modifier from 'ember-modifier';
-import { parseInitialTouchData, parseTouchData, isHorizontal, isVertical } from 'ember-mobile-core/utils/parse-touch-data';
+import { parseInitialTouchData, parseTouchData, isHorizontal, isVertical } from '../utils/parse-touch-data';
 import { action } from '@ember/object';
 
 const _fn = () => {};
