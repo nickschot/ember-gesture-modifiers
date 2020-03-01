@@ -5,9 +5,9 @@
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": "https://github.com/nickschot/ember-gesture-modifiers",
   "license": "MIT",
-  "author": "",
+  "author": "Nick Schot <nick@sophorasoft.nl>",
   "directories": {
     "doc": "doc",
     "test": "tests"
