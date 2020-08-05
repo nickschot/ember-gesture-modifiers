@@ -8,16 +8,8 @@ export default class DidPanModifier extends Modifier {
   threshold;
   axis;
   capture;
-  passive;
   preventScroll;
   currentTouches = new Map();
-
-  get options() {
-    return {
-      capture: this.capture,
-      passive: this.passive
-    };
-  }
 
   addEventListeners() {
     // if an axis is set, limit scroll to a single axis
@@ -27,19 +19,19 @@ export default class DidPanModifier extends Modifier {
       this.element.style.touchAction = 'pan-x';
     }
 
-    this.element.addEventListener('touchstart', this.didTouchStart, this.options);
-    this.element.addEventListener('touchmove', this.didTouchMove, { capture: this.useCapture });
-    this.element.addEventListener('touchend', this.didTouchEnd, this.options);
-    this.element.addEventListener('touchcancel', this.didTouchEnd, this.options);
+    this.element.addEventListener('touchstart', this.didTouchStart, { capture: this.useCapture, passive: true });
+    this.element.addEventListener('touchmove', this.didTouchMove, { capture: this.useCapture, passive: !this.preventScroll });
+    this.element.addEventListener('touchend', this.didTouchEnd, { capture: this.useCapture, passive: true });
+    this.element.addEventListener('touchcancel', this.didTouchEnd, { capture: this.useCapture, passive: true });
   }
 
   removeEventListeners() {
     this.element.style.touchAction = null;
 
-    this.element.removeEventListener('touchstart', this.didTouchStart, this.options);
-    this.element.removeEventListener('touchmove', this.didTouchMove, { capture: this.useCapture });
-    this.element.removeEventListener('touchend', this.didTouchEnd, this.options);
-    this.element.removeEventListener('touchcancel', this.didTouchEnd, this.options);
+    this.element.removeEventListener('touchstart', this.didTouchStart, { capture: this.useCapture, passive: true });
+    this.element.removeEventListener('touchmove', this.didTouchMove, { capture: this.useCapture, passive: !this.preventScroll });
+    this.element.removeEventListener('touchend', this.didTouchEnd, { capture: this.useCapture, passive: true });
+    this.element.removeEventListener('touchcancel', this.didTouchEnd, { capture: this.useCapture, passive: true });
   }
 
   @action
@@ -114,7 +106,6 @@ export default class DidPanModifier extends Modifier {
     this.threshold = this.args.named.threshold ?? 10;
     this.axis = this.args.named.axis ?? 'horizontal';
     this.capture = this.args.named.capture ?? false;
-    this.passive = this.args.named.passive ?? true;
     this.preventScroll = this.args.named.preventScroll ?? true;
 
     this.didPanStart = this.args.named.onPanStart ?? _fn;
