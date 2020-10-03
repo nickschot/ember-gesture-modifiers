@@ -12,7 +12,10 @@ export default class DidPanModifier extends Modifier {
   currentTouches = new Map();
 
   addEventListeners() {
-    // if an axis is set, limit scroll to a single axis
+    // By default, CSS rule `touch-action` is `auto`, enabling panning on both directions.
+    // We override panning on a given direction, so we need to disable default browser behavior
+    // on that diretion, but we need to keep the other direction pannable.
+    // Thus, we set `touch-action` to `pan-y` when we pan horizontally and vice versa.
     if(this.axis === 'horizontal'){
       this.element.style.touchAction = 'pan-y';
     } else if(this.axis === 'vertical') {

@@ -24,4 +24,7 @@
 /bower.json.ember-try
 /package.json.ember-try
 
+# IDE
 /.idea/
+/.vscode/
+/.history/
