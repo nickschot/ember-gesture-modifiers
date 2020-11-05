@@ -43,6 +43,7 @@ Currently only a Pan modifier is provided. More gestures will be added in the fu
  - **axis** _(default: 'horizontal')_ - axis for the pan event to be recognized ('horizontal' or 'vertical')
  - **capture** _(default: false)_ - whether or not to use capture events instead of bubbling
  - **preventScroll** _(default: true)_ - whether or not to prevent scroll during panning
+ - **pointerEvents** _(default: ['touch'])_ - the pointer types to support (one or more of 'touch', 'mouse', 'pen')
 
 The hooks are passed a TouchData object which looks like:
 ```javascript

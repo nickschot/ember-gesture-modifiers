@@ -7,12 +7,12 @@
  * @return {Object} Returns a TouchData object
  * @private
  */
-export function parseInitialTouchData(touch, e){
+export function parseInitialTouchData(e){
   return {
     data: {
       initial: {
-        x: touch.clientX,
-        y: touch.clientY,
+        x: e.clientX,
+        y: e.clientY,
         timeStamp: e.timeStamp
       },
       cache: {
@@ -40,25 +40,25 @@ export function parseInitialTouchData(touch, e){
  * @return {Object} The new touch data
  * @private
  */
-export function parseTouchData(previousTouchData, touch, e) {
-  const touchData = {...previousTouchData};
+export function parseTouchData(previousTouchData, e) {
+  const touchData = JSON.parse(JSON.stringify(previousTouchData));
   const data = touchData.data;
 
   if(data.current){
-    data.current.deltaX = touch.clientX - data.current.x;
-    data.current.deltaY = touch.clientY - data.current.y;
+    data.current.deltaX = e.clientX - data.current.x;
+    data.current.deltaY = e.clientY - data.current.y;
   } else {
     data.current = {};
-    data.current.deltaX = touch.clientX - data.initial.x;
-    data.current.deltaY = touch.clientY - data.initial.y;
+    data.current.deltaX = e.clientX - data.initial.x;
+    data.current.deltaY = e.clientY - data.initial.y;
   }
 
-  data.current.x = touch.clientX;
-  data.current.y = touch.clientY;
-  data.current.distance = getPointDistance(data.initial.x, touch.clientX, data.initial.y, touch.clientY);
-  data.current.distanceX = touch.clientX - data.initial.x;
-  data.current.distanceY = touch.clientY - data.initial.y;
-  data.current.angle = getAngle(data.initial.x, data.initial.y,  touch.clientX, touch.clientY);
+  data.current.x = e.clientX;
+  data.current.y = e.clientY;
+  data.current.distance = getPointDistance(data.initial.x, e.clientX, data.initial.y, e.clientY);
+  data.current.distanceX = e.clientX - data.initial.x;
+  data.current.distanceY = e.clientY - data.initial.y;
+  data.current.angle = getAngle(data.initial.x, data.initial.y, e.clientX, e.clientY);
 
   // overallVelocity can be calculated continuously
   const overallDeltaTime = e.timeStamp - data.initial.timeStamp;
