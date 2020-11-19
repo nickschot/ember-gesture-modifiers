@@ -1,4 +1,20 @@
 
+## v1.0.0 (2020-11-19)
+
+#### :boom: Breaking Change
+* [#16](https://github.com/nickschot/ember-gesture-modifiers/pull/16) implement PointerEvents (replacing TouchEvents) ([@nickschot](https://github.com/nickschot))
+
+#### :rocket: Enhancement
+* [#16](https://github.com/nickschot/ember-gesture-modifiers/pull/16) implement PointerEvents (replacing TouchEvents) ([@nickschot](https://github.com/nickschot))
+
+#### :memo: Documentation
+* [#15](https://github.com/nickschot/ember-gesture-modifiers/pull/15) Add code comments to explain `touch-action` setting ([@lolmaus](https://github.com/lolmaus))
+
+#### Committers: 2
+- Andrey Mikhaylov (lolmaus) ([@lolmaus](https://github.com/lolmaus))
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v0.2.0 (2020-08-05)
 
 #### :boom: Breaking Change
