@@ -43,6 +43,7 @@ Currently only a Pan modifier is provided. More gestures will be added in the fu
  - **axis** _(default: 'horizontal')_ - axis for the pan event to be recognized ('horizontal' or 'vertical')
  - **capture** _(default: false)_ - whether or not to use capture events instead of bubbling
  - **preventScroll** _(default: true)_ - whether or not to prevent scroll during panning
+ - **pointerEvents** _(default: ['touch'])_ - the pointer types to support (one or more of 'touch', 'mouse', 'pen')
 
 The hooks are passed a TouchData object which looks like:
 ```javascript
@@ -80,6 +81,19 @@ The hooks are passed a TouchData object which looks like:
 }
 ```
 
+Testing
+------------------------------------------------------------------------------
+A `pan` test helper is exposed by the addon.
+
+```javascript
+import { pan } from 'ember-gesture-modifiers/test-support';
+
+...
+
+// arg1: CSS selector on which the pan happens
+// arg2: a direction in which the pan should happen. Either 'left' or 'right'.
+await pan('.my-css-selector', 'right');
+```
 
 Contributing
 ------------------------------------------------------------------------------

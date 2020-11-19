@@ -1,5 +1,5 @@
 import { settled, getRootElement } from '@ember/test-helpers';
-import createTouchEvent from './create-touch-event';
+import createPointerEvent from './create-pointer-event';
 
 function timeout(duration) {
   return new Promise((resolve) => {
@@ -30,7 +30,7 @@ function getElement(target) {
 }
 
 function sendEvent(element, type, x, y){
-  const event = createTouchEvent(element, type, x, y);
+  const event = createPointerEvent(element, type, x, y);
   element.dispatchEvent(event);
 }
 
@@ -56,15 +56,15 @@ async function _pan(element, options = {}){
   const steps = Math.ceil(duration / resolution);
   const middleY = top + height/2;
 
-  sendEvent(element, 'touchstart', startX, middleY);
+  sendEvent(element, 'pointerdown', startX, middleY);
   for(let i = 1; i < steps; i++){
     await timeout(resolution);
     const x = isLeft
       ? startX - (startX - endX)/steps*i
       : (endX - startX)/steps * i;
-    sendEvent(element, 'touchmove',  x, middleY);
+    sendEvent(element, 'pointermove',  x, middleY);
   }
-  sendEvent(element, 'touchend', endX, middleY);
+  sendEvent(element, 'pointerup', endX, middleY);
 }
 
 export default async function pan(target, direction) {

@@ -9,7 +9,9 @@ export default class DidPanModifier extends Modifier {
   axis;
   capture;
   preventScroll;
+  pointerTypes;
   currentTouches = new Map();
+  dragging = false;
 
   addEventListeners() {
     // By default, CSS rule `touch-action` is `auto`, enabling panning on both directions.
@@ -22,35 +24,36 @@ export default class DidPanModifier extends Modifier {
       this.element.style.touchAction = 'pan-x';
     }
 
-    this.element.addEventListener('touchstart', this.didTouchStart, { capture: this.useCapture, passive: true });
-    this.element.addEventListener('touchmove', this.didTouchMove, { capture: this.useCapture, passive: !this.preventScroll });
-    this.element.addEventListener('touchend', this.didTouchEnd, { capture: this.useCapture, passive: true });
-    this.element.addEventListener('touchcancel', this.didTouchEnd, { capture: this.useCapture, passive: true });
+    this.element.addEventListener('pointerdown', this.didTouchStart, { capture: this.useCapture, passive: true });
+    this.element.addEventListener('pointermove', this.didTouchMove, { capture: this.useCapture, passive: !this.preventScroll });
+    this.element.addEventListener('pointerup', this.didTouchEnd, { capture: this.useCapture, passive: true });
+    this.element.addEventListener('pointercancel', this.didTouchEnd, { capture: this.useCapture, passive: true });
   }
 
   removeEventListeners() {
     this.element.style.touchAction = null;
 
-    this.element.removeEventListener('touchstart', this.didTouchStart, { capture: this.useCapture, passive: true });
-    this.element.removeEventListener('touchmove', this.didTouchMove, { capture: this.useCapture, passive: !this.preventScroll });
-    this.element.removeEventListener('touchend', this.didTouchEnd, { capture: this.useCapture, passive: true });
-    this.element.removeEventListener('touchcancel', this.didTouchEnd, { capture: this.useCapture, passive: true });
+    this.element.removeEventListener('pointerdown', this.didTouchStart, { capture: this.useCapture, passive: true });
+    this.element.removeEventListener('pointermove', this.didTouchMove, { capture: this.useCapture, passive: !this.preventScroll });
+    this.element.removeEventListener('pointerup', this.didTouchEnd, { capture: this.useCapture, passive: true });
+    this.element.removeEventListener('pointercancel', this.didTouchEnd, { capture: this.useCapture, passive: true });
   }
 
   @action
   didTouchStart(e){
-    for(const touch of e.changedTouches){
-      const touchData = parseInitialTouchData(touch, e);
+    if (!this.dragging && this.pointerTypes.includes(e.pointerType)) {
+      const touchData = parseInitialTouchData(e);
+      this.currentTouches.set(e.pointerId, touchData);
 
-      this.currentTouches.set(touch.identifier, touchData);
+      this.dragging = true;
     }
   }
 
   @action
   didTouchMove(e){
-    for(const touch of e.changedTouches){
-      const previousTouchData = this.currentTouches.get(touch.identifier);
-      const touchData = parseTouchData(previousTouchData, touch, e);
+    if (this.dragging && this.currentTouches.has(e.pointerId)) {
+      const previousTouchData = this.currentTouches.get(e.pointerId);
+      const touchData = parseTouchData(previousTouchData, e);
 
       if(touchData.panStarted){
         // prevent scroll if a pan is still busy
@@ -87,21 +90,23 @@ export default class DidPanModifier extends Modifier {
         }
       }
 
-      this.currentTouches.set(touch.identifier, touchData);
+      this.currentTouches.set(e.pointerId, touchData);
     }
   }
 
   @action
   didTouchEnd(e){
-    for(const touch of e.changedTouches){
-      const previousTouchData = this.currentTouches.get(touch.identifier);
-      const touchData = parseTouchData(previousTouchData, touch, e);
+    if (this.dragging && this.currentTouches.has(e.pointerId)) {
+      this.dragging = false;
+
+      const previousTouchData = this.currentTouches.get(e.pointerId);
+      const touchData = parseTouchData(previousTouchData, e);
 
       if(touchData.panStarted){
         this.didPanEnd(touchData.data);
       }
 
-      this.currentTouches.delete(touch.identifier);
+      this.currentTouches.delete(e.pointerId);
     }
   }
 
@@ -110,6 +115,7 @@ export default class DidPanModifier extends Modifier {
     this.axis = this.args.named.axis ?? 'horizontal';
     this.capture = this.args.named.capture ?? false;
     this.preventScroll = this.args.named.preventScroll ?? true;
+    this.pointerTypes = this.args.named.pointerTypes ?? ['touch'];
 
     this.didPanStart = this.args.named.onPanStart ?? _fn;
     this.didPan = this.args.named.onPan ?? _fn;
