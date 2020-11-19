@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import pan from '../../helpers/pan';
+import { pan } from 'ember-gesture-modifiers/test-support';
 
 module('Integration | Modifier | did-pan', function(hooks) {
   setupRenderingTest(hooks);

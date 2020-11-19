@@ -81,6 +81,19 @@ The hooks are passed a TouchData object which looks like:
 }
 ```
 
+Testing
+------------------------------------------------------------------------------
+A `pan` test helper is exposed by the addon.
+
+```javascript
+import { pan } from 'ember-gesture-modifiers/test-support';
+
+...
+
+// arg1: CSS selector on which the pan happens
+// arg2: a direction in which the pan should happen. Either 'left' or 'right'.
+await pan('.my-css-selector', 'right');
+```
 
 Contributing
 ------------------------------------------------------------------------------
