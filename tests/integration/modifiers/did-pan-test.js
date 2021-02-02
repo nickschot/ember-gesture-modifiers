@@ -64,5 +64,28 @@ module('Integration | Modifier | did-pan', function(hooks) {
     assert.equal(didStart, false, 'onPanStart should not have been called');
   });
 
-  // TODO: vertical pan tests (axis=vertical)
+  test(`it sets the correect touch-action for the passed axis`, async function(assert) {
+    await render(hbs`<div data-test-div class="did-pan" {{did-pan axis=this.axis}} style="width: 50px; height: 10px; background: red"></div>`);
+
+    assert.dom('[data-test-div]').hasStyle({
+      'touch-action': 'pan-y'
+    });
+
+    this.set('axis', 'vertical');
+    assert.dom('[data-test-div]').hasStyle({
+      'touch-action': 'pan-x'
+    });
+
+    this.set('axis', 'horizontal');
+    assert.dom('[data-test-div]').hasStyle({
+      'touch-action': 'pan-y'
+    });
+
+    this.set('axis', 'both');
+    assert.dom('[data-test-div]').hasStyle({
+      'touch-action': 'none'
+    });
+  });
+
+  // TODO: vertical/bi-directional pan tests (axis=vertical,both)
 });
