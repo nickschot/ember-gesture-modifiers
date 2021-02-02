@@ -30,6 +30,12 @@ export default class DidPanModifier extends Modifier {
     this.element.addEventListener('pointermove', this.didTouchMove, { capture: this.useCapture, passive: !this.preventScroll });
     this.element.addEventListener('pointerup', this.didTouchEnd, { capture: this.useCapture, passive: true });
     this.element.addEventListener('pointercancel', this.didTouchEnd, { capture: this.useCapture, passive: true });
+
+    if (this.pointerTypes?.includes('mouse')) {
+      document.addEventListener('pointermove', this.documentPointerMove, { capture: this.useCapture, passive: !this.preventScroll });
+      document.addEventListener('pointercancel', this.documentPointerUp, { capture: this.useCapture, passive: true });
+      document.addEventListener('pointerup', this.documentPointerUp, { capture: this.useCapture, passive: true });
+    }
   }
 
   removeEventListeners() {
@@ -39,6 +45,12 @@ export default class DidPanModifier extends Modifier {
     this.element.removeEventListener('pointermove', this.didTouchMove, { capture: this.useCapture, passive: !this.preventScroll });
     this.element.removeEventListener('pointerup', this.didTouchEnd, { capture: this.useCapture, passive: true });
     this.element.removeEventListener('pointercancel', this.didTouchEnd, { capture: this.useCapture, passive: true });
+
+    if (this.pointerTypes?.includes('mouse')) {
+      document.removeEventListener('pointermove', this.documentPointerMove, { capture: this.useCapture, passive: !this.preventScroll });
+      document.removeEventListener('pointercancel', this.documentPointerUp, {capture: this.useCapture, passive: true});
+      document.removeEventListener('pointerup', this.documentPointerUp, {capture: this.useCapture, passive: true});
+    }
   }
 
   @action
@@ -52,7 +64,35 @@ export default class DidPanModifier extends Modifier {
   }
 
   @action
-  didTouchMove(e){
+  didTouchMove(e) {
+    if (e.pointerType !== 'mouse') {
+      this.handleTouchMove(e);
+    }
+  }
+
+  @action
+  didTouchEnd(e){
+    if (e.pointerType !== 'mouse') {
+      this.handleTouchEnd(e);
+    }
+  }
+
+  @action
+  documentPointerMove(e) {
+    if (this.dragging && e.pointerType === 'mouse' && this.pointerTypes.includes(e.pointerType)) {
+      this.handleTouchMove(e);
+    }
+  }
+
+  @action
+  documentPointerUp(e) {
+    if (this.dragging && e.pointerType === 'mouse' && this.pointerTypes.includes(e.pointerType)) {
+      this.handleTouchEnd(e);
+    }
+  }
+
+  @action
+  handleTouchMove(e){
     if (this.dragging && this.currentTouches.has(e.pointerId)) {
       const previousTouchData = this.currentTouches.get(e.pointerId);
       const touchData = parseTouchData(previousTouchData, e);
@@ -99,7 +139,7 @@ export default class DidPanModifier extends Modifier {
   }
 
   @action
-  didTouchEnd(e){
+  handleTouchEnd(e){
     if (this.dragging && this.currentTouches.has(e.pointerId)) {
       this.dragging = false;
 
@@ -115,6 +155,8 @@ export default class DidPanModifier extends Modifier {
   }
 
   didReceiveArguments() {
+    this.removeEventListeners();
+
     this.threshold = this.args.named.threshold ?? 10;
     this.axis = this.args.named.axis ?? 'horizontal';
     this.capture = this.args.named.capture ?? false;
@@ -125,7 +167,6 @@ export default class DidPanModifier extends Modifier {
     this.didPan = this.args.named.onPan ?? _fn;
     this.didPanEnd = this.args.named.onPanEnd ?? _fn;
 
-    this.removeEventListeners();
     this.addEventListeners();
   }
 

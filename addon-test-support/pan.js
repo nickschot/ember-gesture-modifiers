@@ -29,8 +29,8 @@ function getElement(target) {
   }
 }
 
-function sendEvent(element, type, x, y){
-  const event = createPointerEvent(element, type, x, y);
+function sendEvent(element, type, x, y, pointerType){
+  const event = createPointerEvent(element, type, x, y, 0, pointerType);
   element.dispatchEvent(event);
 }
 
@@ -50,24 +50,28 @@ async function _pan(element, options = {}){
     startX = isLeft ? right - 1 : left + 1,
     endX = isLeft ? left + 1 : right - 1,
     duration = 300,
-    resolution = 17 // ms per step
+    resolution = 17, // ms per step
+    pointerType,
   } = options;
 
   const steps = Math.ceil(duration / resolution);
   const middleY = top + height/2;
 
-  sendEvent(element, 'pointerdown', startX, middleY);
+  sendEvent(document, 'pointerdown', startX, middleY, pointerType);
+  sendEvent(element, 'pointerdown', startX, middleY, pointerType);
   for(let i = 1; i < steps; i++){
     await timeout(resolution);
     const x = isLeft
       ? startX - (startX - endX)/steps*i
       : (endX - startX)/steps * i;
-    sendEvent(element, 'pointermove',  x, middleY);
+    sendEvent(document, 'pointermove', x, middleY, pointerType);
+    sendEvent(element, 'pointermove', x, middleY, pointerType);
   }
-  sendEvent(element, 'pointerup', endX, middleY);
+  sendEvent(document, 'pointerup', endX, middleY, pointerType);
+  sendEvent(element, 'pointerup', endX, middleY, pointerType);
 }
 
-export default async function pan(target, direction) {
+export default async function pan(target, direction, pointerType) {
   await nextTickPromise();
 
   if (!target) {
@@ -79,7 +83,7 @@ export default async function pan(target, direction) {
     throw new Error(`Element not found when calling \`pan('${target}')\`.`);
   }
 
-  await _pan(element, { direction });
+  await _pan(element, { direction, pointerType });
 
   return settled();
 }

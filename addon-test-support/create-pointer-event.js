@@ -1,3 +1,5 @@
+import { assert } from '@ember/debug';
+
 /**
  * Generates a PointerEvent for testing purposes
  *
@@ -8,12 +10,14 @@
  * @param {number} identifier
  * @returns {PointerEvent}
  */
-export default function createPointerEvent(target, eventType, x, y, identifier = 0) {
+export default function createPointerEvent(target, eventType, x, y, identifier = 0, pointerType = 'touch') {
+  assert('Argument "pointerType" must be one of "touch", "mouse" or "pen".', ['touch', 'mouse', 'pen'].includes(pointerType));
+
   return new PointerEvent(eventType, {
     identifier: identifier || 0,
     target,
     clientX: x,
     clientY: y,
-    pointerType: ['touch']
+    pointerType: [pointerType]
   });
 }
