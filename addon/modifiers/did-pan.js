@@ -22,6 +22,8 @@ export default class DidPanModifier extends Modifier {
       this.element.style.touchAction = 'pan-y';
     } else if(this.axis === 'vertical') {
       this.element.style.touchAction = 'pan-x';
+    } else if (this.axis === 'both') {
+      this.element.style.touchAction = 'none';
     }
 
     this.element.addEventListener('pointerdown', this.didTouchStart, { capture: this.useCapture, passive: true });
@@ -69,11 +71,13 @@ export default class DidPanModifier extends Modifier {
           && (
             (this.axis === 'horizontal' && Math.abs(touchData.data.current.distanceX) > this.threshold)
             || (this.axis === 'vertical' && Math.abs(touchData.data.current.distanceY) > this.threshold)
+            || (this.axis === 'both' && Math.abs(touchData.data.current.distance) > this.threshold)
           )
         ){
           // test if axis matches with data else deny the pan
           if(  (this.axis === 'horizontal' && isHorizontal(touchData))
             || (this.axis === 'vertical' && isVertical(touchData))
+            || this.axis === 'both'
           ){
             // prevent scroll if a pan is detected
             if(this.preventScroll){

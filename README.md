@@ -40,7 +40,7 @@ Currently only a Pan modifier is provided. More gestures will be added in the fu
  - **onPan** - hook fired when the pan is updated
  - **onPanEnd** - hook fired when a pan has ended
  - **threshold** _(default: 10)_ - minimum touch movement needed in px to start a pan
- - **axis** _(default: 'horizontal')_ - axis for the pan event to be recognized ('horizontal' or 'vertical')
+ - **axis** _(default: 'horizontal')_ - axis for the pan event to be recognized ('horizontal', 'vertical' or 'both')
  - **capture** _(default: false)_ - whether or not to use capture events instead of bubbling
  - **preventScroll** _(default: true)_ - whether or not to prevent scroll during panning
  - **pointerTypes** _(default: ['touch'])_ - the pointer types to support (one or more of 'touch', 'mouse', 'pen')
