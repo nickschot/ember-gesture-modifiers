@@ -7,28 +7,34 @@ import { pan } from 'ember-gesture-modifiers/test-support';
 module('Integration | Modifier | did-pan', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it fires the passed hooks when panning', async function(assert) {
-    let startCount = 0;
-    let panCount = 0;
-    let endCount = 0;
+  for (const pointerType of ['mouse', 'touch', 'pen']) {
+    test(`it fires the passed hooks when panning with a pointer of type "${pointerType}"`, async function(assert) {
+      let startCount = 0;
+      let panCount = 0;
+      let endCount = 0;
 
-    this.handlePanStart = () => {
-      startCount++;
-    };
-    this.handlePan = () => {
-      panCount++
-    };
-    this.handlePanEnd = () => {
-      endCount++;
-    };
+      this.handlePanStart = () => {
+        startCount++;
+      };
+      this.handlePan = () => {
+        panCount++
+      };
+      this.handlePanEnd = () => {
+        endCount++;
+      };
 
-    await render(hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd}} style="width: 50px; height: 10px; background: red;"></div>`);
-    await pan('.did-pan', 'right');
+      if (pointerType !== 'touch') {
+        this.pointerTypes = [pointerType];
+      }
 
-    assert.equal(startCount, 1, 'onPanStart should have been called 1 time');
-    assert.equal(panCount, 12, 'onPan should have been called 16 times');
-    assert.equal(endCount, 1, 'onPanEnd should have been called 1 time');
-  });
+      await render(hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd pointerTypes=this.pointerTypes}} style="width: 50px; height: 10px; background: red;"></div>`);
+      await pan('.did-pan', 'right', pointerType);
+
+      assert.equal(startCount, 1, 'onPanStart should have been called 1 time');
+      assert.equal(panCount, 12, 'onPan should have been called 16 times');
+      assert.equal(endCount, 1, 'onPanEnd should have been called 1 time');
+    });
+  }
 
   test(`it fires the passed hooks when the custom threshold is met`, async function(assert) {
     assert.expect(2);
@@ -64,7 +70,7 @@ module('Integration | Modifier | did-pan', function(hooks) {
     assert.equal(didStart, false, 'onPanStart should not have been called');
   });
 
-  test(`it sets the correect touch-action for the passed axis`, async function(assert) {
+  test(`it sets the correct touch-action for the passed axis`, async function(assert) {
     await render(hbs`<div data-test-div class="did-pan" {{did-pan axis=this.axis}} style="width: 50px; height: 10px; background: red"></div>`);
 
     assert.dom('[data-test-div]').hasStyle({
