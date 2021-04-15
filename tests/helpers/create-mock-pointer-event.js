@@ -5,7 +5,12 @@
  * @param {number} y
  * @param {number} timeStampDelta
  */
-export default function createMockPointerEvent(eventType, x, y, timeStampDelta = 0) {
+export default function createMockPointerEvent(
+  eventType,
+  x,
+  y,
+  timeStampDelta = 0
+) {
   // we mock it using an object because we can't otherwise set the timeStamp
   return {
     type: eventType,
@@ -13,6 +18,6 @@ export default function createMockPointerEvent(eventType, x, y, timeStampDelta =
     target: document.body,
     clientX: x,
     clientY: y,
-    timeStamp: 234011.29999995464 + timeStampDelta
-  }
+    timeStamp: 234011.29999995464 + timeStampDelta,
+  };
 }

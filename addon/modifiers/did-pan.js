@@ -1,5 +1,10 @@
 import Modifier from 'ember-modifier';
-import { parseInitialTouchData, parseTouchData, isHorizontal, isVertical } from '../utils/parse-touch-data';
+import {
+  parseInitialTouchData,
+  parseTouchData,
+  isHorizontal,
+  isVertical,
+} from '../utils/parse-touch-data';
 import { action } from '@ember/object';
 
 const _fn = () => {};
@@ -18,43 +23,85 @@ export default class DidPanModifier extends Modifier {
     // We override panning on a given direction, so we need to disable default browser behavior
     // on that diretion, but we need to keep the other direction pannable.
     // Thus, we set `touch-action` to `pan-y` when we pan horizontally and vice versa.
-    if(this.axis === 'horizontal'){
+    if (this.axis === 'horizontal') {
       this.element.style.touchAction = 'pan-y';
-    } else if(this.axis === 'vertical') {
+    } else if (this.axis === 'vertical') {
       this.element.style.touchAction = 'pan-x';
     } else if (this.axis === 'both') {
       this.element.style.touchAction = 'none';
     }
 
-    this.element.addEventListener('pointerdown', this.didTouchStart, { capture: this.useCapture, passive: true });
-    this.element.addEventListener('pointermove', this.didTouchMove, { capture: this.useCapture, passive: !this.preventScroll });
-    this.element.addEventListener('pointerup', this.didTouchEnd, { capture: this.useCapture, passive: true });
-    this.element.addEventListener('pointercancel', this.didTouchEnd, { capture: this.useCapture, passive: true });
+    this.element.addEventListener('pointerdown', this.didTouchStart, {
+      capture: this.useCapture,
+      passive: true,
+    });
+    this.element.addEventListener('pointermove', this.didTouchMove, {
+      capture: this.useCapture,
+      passive: !this.preventScroll,
+    });
+    this.element.addEventListener('pointerup', this.didTouchEnd, {
+      capture: this.useCapture,
+      passive: true,
+    });
+    this.element.addEventListener('pointercancel', this.didTouchEnd, {
+      capture: this.useCapture,
+      passive: true,
+    });
 
     if (this.pointerTypes?.includes('mouse')) {
-      document.addEventListener('pointermove', this.documentPointerMove, { capture: this.useCapture, passive: !this.preventScroll });
-      document.addEventListener('pointercancel', this.documentPointerUp, { capture: this.useCapture, passive: true });
-      document.addEventListener('pointerup', this.documentPointerUp, { capture: this.useCapture, passive: true });
+      document.addEventListener('pointermove', this.documentPointerMove, {
+        capture: this.useCapture,
+        passive: !this.preventScroll,
+      });
+      document.addEventListener('pointercancel', this.documentPointerUp, {
+        capture: this.useCapture,
+        passive: true,
+      });
+      document.addEventListener('pointerup', this.documentPointerUp, {
+        capture: this.useCapture,
+        passive: true,
+      });
     }
   }
 
   removeEventListeners() {
     this.element.style.touchAction = null;
 
-    this.element.removeEventListener('pointerdown', this.didTouchStart, { capture: this.useCapture, passive: true });
-    this.element.removeEventListener('pointermove', this.didTouchMove, { capture: this.useCapture, passive: !this.preventScroll });
-    this.element.removeEventListener('pointerup', this.didTouchEnd, { capture: this.useCapture, passive: true });
-    this.element.removeEventListener('pointercancel', this.didTouchEnd, { capture: this.useCapture, passive: true });
+    this.element.removeEventListener('pointerdown', this.didTouchStart, {
+      capture: this.useCapture,
+      passive: true,
+    });
+    this.element.removeEventListener('pointermove', this.didTouchMove, {
+      capture: this.useCapture,
+      passive: !this.preventScroll,
+    });
+    this.element.removeEventListener('pointerup', this.didTouchEnd, {
+      capture: this.useCapture,
+      passive: true,
+    });
+    this.element.removeEventListener('pointercancel', this.didTouchEnd, {
+      capture: this.useCapture,
+      passive: true,
+    });
 
     if (this.pointerTypes?.includes('mouse')) {
-      document.removeEventListener('pointermove', this.documentPointerMove, { capture: this.useCapture, passive: !this.preventScroll });
-      document.removeEventListener('pointercancel', this.documentPointerUp, {capture: this.useCapture, passive: true});
-      document.removeEventListener('pointerup', this.documentPointerUp, {capture: this.useCapture, passive: true});
+      document.removeEventListener('pointermove', this.documentPointerMove, {
+        capture: this.useCapture,
+        passive: !this.preventScroll,
+      });
+      document.removeEventListener('pointercancel', this.documentPointerUp, {
+        capture: this.useCapture,
+        passive: true,
+      });
+      document.removeEventListener('pointerup', this.documentPointerUp, {
+        capture: this.useCapture,
+        passive: true,
+      });
     }
   }
 
   @action
-  didTouchStart(e){
+  didTouchStart(e) {
     if (!this.dragging && this.pointerTypes.includes(e.pointerType)) {
       const touchData = parseInitialTouchData(e);
       this.currentTouches.set(e.pointerId, touchData);
@@ -71,7 +118,7 @@ export default class DidPanModifier extends Modifier {
   }
 
   @action
-  didTouchEnd(e){
+  didTouchEnd(e) {
     if (e.pointerType !== 'mouse') {
       this.handleTouchEnd(e);
     }
@@ -79,48 +126,58 @@ export default class DidPanModifier extends Modifier {
 
   @action
   documentPointerMove(e) {
-    if (this.dragging && e.pointerType === 'mouse' && this.pointerTypes.includes(e.pointerType)) {
+    if (
+      this.dragging &&
+      e.pointerType === 'mouse' &&
+      this.pointerTypes.includes(e.pointerType)
+    ) {
       this.handleTouchMove(e);
     }
   }
 
   @action
   documentPointerUp(e) {
-    if (this.dragging && e.pointerType === 'mouse' && this.pointerTypes.includes(e.pointerType)) {
+    if (
+      this.dragging &&
+      e.pointerType === 'mouse' &&
+      this.pointerTypes.includes(e.pointerType)
+    ) {
       this.handleTouchEnd(e);
     }
   }
 
   @action
-  handleTouchMove(e){
+  handleTouchMove(e) {
     if (this.dragging && this.currentTouches.has(e.pointerId)) {
       const previousTouchData = this.currentTouches.get(e.pointerId);
       const touchData = parseTouchData(previousTouchData, e);
 
-      if(touchData.panStarted){
+      if (touchData.panStarted) {
         // prevent scroll if a pan is still busy
-        if(this.preventScroll){
+        if (this.preventScroll) {
           e.preventDefault();
         }
 
         this.didPan(touchData.data);
       } else {
         // only pan when the threshold for the given axis is achieved
-        if(
-          !touchData.panDenied
-          && (
-            (this.axis === 'horizontal' && Math.abs(touchData.data.current.distanceX) > this.threshold)
-            || (this.axis === 'vertical' && Math.abs(touchData.data.current.distanceY) > this.threshold)
-            || (this.axis === 'both' && Math.abs(touchData.data.current.distance) > this.threshold)
-          )
-        ){
+        if (
+          !touchData.panDenied &&
+          ((this.axis === 'horizontal' &&
+            Math.abs(touchData.data.current.distanceX) > this.threshold) ||
+            (this.axis === 'vertical' &&
+              Math.abs(touchData.data.current.distanceY) > this.threshold) ||
+            (this.axis === 'both' &&
+              Math.abs(touchData.data.current.distance) > this.threshold))
+        ) {
           // test if axis matches with data else deny the pan
-          if(  (this.axis === 'horizontal' && isHorizontal(touchData))
-            || (this.axis === 'vertical' && isVertical(touchData))
-            || this.axis === 'both'
-          ){
+          if (
+            (this.axis === 'horizontal' && isHorizontal(touchData)) ||
+            (this.axis === 'vertical' && isVertical(touchData)) ||
+            this.axis === 'both'
+          ) {
             // prevent scroll if a pan is detected
-            if(this.preventScroll){
+            if (this.preventScroll) {
               e.preventDefault();
             }
 
@@ -139,14 +196,14 @@ export default class DidPanModifier extends Modifier {
   }
 
   @action
-  handleTouchEnd(e){
+  handleTouchEnd(e) {
     if (this.dragging && this.currentTouches.has(e.pointerId)) {
       this.dragging = false;
 
       const previousTouchData = this.currentTouches.get(e.pointerId);
       const touchData = parseTouchData(previousTouchData, e);
 
-      if(touchData.panStarted){
+      if (touchData.panStarted) {
         this.didPanEnd(touchData.data);
       }
 
