@@ -2,13 +2,13 @@ import {
   parseInitialTouchData,
   parseTouchData,
   isHorizontal,
-  isVertical
+  isVertical,
 } from 'ember-gesture-modifiers/utils/parse-touch-data';
 import { module, test } from 'qunit';
 import createMockPointerEvent from '../../helpers/create-mock-pointer-event';
 
-module('Unit | Utility | parse-touch-data', function() {
-  test('it returns the initial touch data', function(assert) {
+module('Unit | Utility | parse-touch-data', function () {
+  test('it returns the initial touch data', function (assert) {
     const e = createMockPointerEvent('pointermove', 0, 0);
     let touchData = parseInitialTouchData(e);
 
@@ -17,24 +17,24 @@ module('Unit | Utility | parse-touch-data', function() {
         initial: {
           x: e.clientX,
           y: e.clientY,
-          timeStamp: e.timeStamp
+          timeStamp: e.timeStamp,
         },
         cache: {
           velocity: {
             distanceX: 0,
             distanceY: 0,
-            timeStamp: e.timeStamp
-          }
+            timeStamp: e.timeStamp,
+          },
         },
         timeStamp: e.timeStamp,
-        originalEvent: e
+        originalEvent: e,
       },
       panStarted: false,
       panDenied: false,
     });
   });
 
-  test('it returns the parsed touch data', async function(assert) {
+  test('it returns the parsed touch data', async function (assert) {
     const e1 = createMockPointerEvent('pointermove', 0, 0);
     const e2 = createMockPointerEvent('pointermove', 42, 33, 52);
     let initialTouchData = parseInitialTouchData(e1);
@@ -46,8 +46,8 @@ module('Unit | Utility | parse-touch-data', function() {
           velocity: {
             distanceX: 42,
             distanceY: 33,
-            timeStamp: e2.timeStamp
-          }
+            timeStamp: e2.timeStamp,
+          },
         },
         current: {
           angle: 321.84277341263095,
@@ -63,18 +63,18 @@ module('Unit | Utility | parse-touch-data', function() {
           velocityX: 0.8076923076923077,
           velocityY: 0.6346153846153846,
           x: 42,
-          y: 33
+          y: 33,
         },
         initial: initialTouchData.data.initial,
         originalEvent: e2,
-        timeStamp: e2.timeStamp
+        timeStamp: e2.timeStamp,
       },
       panDenied: false,
-      panStarted: false
+      panStarted: false,
     });
   });
 
-  test('it detects a touch as horizontal', function(assert) {
+  test('it detects a touch as horizontal', function (assert) {
     assert.expect(4);
 
     let e1 = createMockPointerEvent('pointermove', 0, 0);
@@ -97,7 +97,7 @@ module('Unit | Utility | parse-touch-data', function() {
     assert.equal(isHorizontal(touchData), false);
   });
 
-  test('it detects a touch as vertical', function(assert) {
+  test('it detects a touch as vertical', function (assert) {
     assert.expect(4);
 
     let e1 = createMockPointerEvent('pointermove', 0, 0);
@@ -118,5 +118,5 @@ module('Unit | Utility | parse-touch-data', function() {
     e2 = createMockPointerEvent('pointermove', -33, -42, 52);
     touchData = parseTouchData(initialTouchData, e2);
     assert.equal(isVertical(touchData), true);
-  })
+  });
 });

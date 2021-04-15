@@ -7,27 +7,27 @@
  * @return {Object} Returns a TouchData object
  * @private
  */
-export function parseInitialTouchData(e){
+export function parseInitialTouchData(e) {
   return {
     data: {
       initial: {
         x: e.clientX,
         y: e.clientY,
-        timeStamp: e.timeStamp
+        timeStamp: e.timeStamp,
       },
       cache: {
         velocity: {
           distanceX: 0,
           distanceY: 0,
-          timeStamp: e.timeStamp
-        }
+          timeStamp: e.timeStamp,
+        },
       },
       timeStamp: e.timeStamp,
-      originalEvent: e
+      originalEvent: e,
     },
     panStarted: false,
     panDenied: false,
-  }
+  };
 }
 
 /**
@@ -44,7 +44,7 @@ export function parseTouchData(previousTouchData, e) {
   const touchData = JSON.parse(JSON.stringify(previousTouchData));
   const data = touchData.data;
 
-  if(data.current){
+  if (data.current) {
     data.current.deltaX = e.clientX - data.current.x;
     data.current.deltaY = e.clientY - data.current.y;
   } else {
@@ -55,34 +55,51 @@ export function parseTouchData(previousTouchData, e) {
 
   data.current.x = e.clientX;
   data.current.y = e.clientY;
-  data.current.distance = getPointDistance(data.initial.x, e.clientX, data.initial.y, e.clientY);
+  data.current.distance = getPointDistance(
+    data.initial.x,
+    e.clientX,
+    data.initial.y,
+    e.clientY
+  );
   data.current.distanceX = e.clientX - data.initial.x;
   data.current.distanceY = e.clientY - data.initial.y;
-  data.current.angle = getAngle(data.initial.x, data.initial.y, e.clientX, e.clientY);
+  data.current.angle = getAngle(
+    data.initial.x,
+    data.initial.y,
+    e.clientX,
+    e.clientY
+  );
 
   // overallVelocity can be calculated continuously
   const overallDeltaTime = e.timeStamp - data.initial.timeStamp;
-  data.current.overallVelocityX = data.current.distanceX / overallDeltaTime || 0;
-  data.current.overallVelocityY = data.current.distanceY / overallDeltaTime || 0;
-  data.current.overallVelocity = Math.abs(data.current.overallVelocityX) > Math.abs(data.current.overallVelocityY)
-    ? data.current.overallVelocityX
-    : data.current.overallVelocityY;
+  data.current.overallVelocityX =
+    data.current.distanceX / overallDeltaTime || 0;
+  data.current.overallVelocityY =
+    data.current.distanceY / overallDeltaTime || 0;
+  data.current.overallVelocity =
+    Math.abs(data.current.overallVelocityX) >
+    Math.abs(data.current.overallVelocityY)
+      ? data.current.overallVelocityX
+      : data.current.overallVelocityY;
 
   // we don't update the velocity on the final touchend event as nothing but the timestamp has changed
   // which always results in a velocity of 0
-  if(e.type !== 'touchend'){
+  if (e.type !== 'touchend') {
     const deltaTime = e.timeStamp - data.cache.velocity.timeStamp;
 
-    data.current.velocityX = (data.current.distanceX - data.cache.velocity.distanceX) / deltaTime || 0;
-    data.current.velocityY = (data.current.distanceY - data.cache.velocity.distanceY) / deltaTime || 0;
-    data.current.velocity = Math.abs(data.current.velocityX) > Math.abs(data.current.velocityY)
-      ? data.current.velocityX
-      : data.current.velocityY;
+    data.current.velocityX =
+      (data.current.distanceX - data.cache.velocity.distanceX) / deltaTime || 0;
+    data.current.velocityY =
+      (data.current.distanceY - data.cache.velocity.distanceY) / deltaTime || 0;
+    data.current.velocity =
+      Math.abs(data.current.velocityX) > Math.abs(data.current.velocityY)
+        ? data.current.velocityX
+        : data.current.velocityY;
 
     data.cache.velocity = {
       distanceX: data.current.distanceX,
       distanceY: data.current.distanceY,
-      timeStamp: e.timeStamp
+      timeStamp: e.timeStamp,
     };
   }
 
@@ -102,8 +119,11 @@ export function parseTouchData(previousTouchData, e) {
  * @return {boolean} True if horizontal
  * @private
  */
-export function isHorizontal(touchData){
-  const direction = getDirection(touchData.data.current.distanceX, touchData.data.current.distanceY);
+export function isHorizontal(touchData) {
+  const direction = getDirection(
+    touchData.data.current.distanceX,
+    touchData.data.current.distanceY
+  );
   return direction === 'left' || direction === 'right';
 }
 
@@ -115,8 +135,11 @@ export function isHorizontal(touchData){
  * @return {boolean} true if vertical
  * @private
  */
-export function isVertical(touchData){
-  const direction = getDirection(touchData.data.current.distanceX, touchData.data.current.distanceY);
+export function isVertical(touchData) {
+  const direction = getDirection(
+    touchData.data.current.distanceX,
+    touchData.data.current.distanceY
+  );
   return direction === 'down' || direction === 'up';
 }
 
@@ -130,9 +153,9 @@ export function isVertical(touchData){
  * @private
  */
 function getDirection(x, y) {
-  if(x === y){
+  if (x === y) {
     return 'none';
-  } else if(Math.abs(x) >= Math.abs(y)){
+  } else if (Math.abs(x) >= Math.abs(y)) {
     return x < 0 ? 'left' : 'right';
   } else {
     return y < 0 ? 'down' : 'up';
@@ -151,7 +174,7 @@ function getDirection(x, y) {
  * @private
  */
 function getPointDistance(x0, x1, y0, y1) {
-  return (Math.sqrt(((x1 - x0) * (x1 - x0)) + ((y1 - y0) * (y1 - y0))));
+  return Math.sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0));
 }
 
 /**
@@ -166,6 +189,7 @@ function getPointDistance(x0, x1, y0, y1) {
  * @private
  */
 function getAngle(originX, originY, projectionX, projectionY) {
-  const angle = Math.atan2(projectionY - originY, projectionX - originX) * ((180) / Math.PI);
-  return 360 - ((angle < 0) ? (360 + angle) : angle);
+  const angle =
+    Math.atan2(projectionY - originY, projectionX - originX) * (180 / Math.PI);
+  return 360 - (angle < 0 ? 360 + angle : angle);
 }
