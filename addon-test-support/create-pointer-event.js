@@ -24,6 +24,8 @@ export default function createPointerEvent(
   );
 
   return new PointerEvent(eventType, {
+    bubbles: true,
+    cancelable: true,
     identifier: identifier || 0,
     target,
     clientX: x,

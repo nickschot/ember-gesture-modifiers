@@ -7,7 +7,11 @@ import { pan } from 'ember-gesture-modifiers/test-support';
 module('Integration | Modifier | did-pan', function (hooks) {
   setupRenderingTest(hooks);
 
-  for (const pointerType of ['mouse', 'touch', 'pen']) {
+  for (const [pointerType, expectedPanCount] of Object.entries({
+    mouse: 25,
+    touch: 12,
+    pen: 12,
+  })) {
     test(`it fires the passed hooks when panning with a pointer of type "${pointerType}"`, async function (assert) {
       let startCount = 0;
       let panCount = 0;
@@ -33,7 +37,11 @@ module('Integration | Modifier | did-pan', function (hooks) {
       await pan('.did-pan', 'right', pointerType);
 
       assert.equal(startCount, 1, 'onPanStart should have been called 1 time');
-      assert.equal(panCount, 12, 'onPan should have been called 16 times');
+      assert.equal(
+        panCount,
+        expectedPanCount,
+        `onPan should have been called ${expectedPanCount} times`
+      );
       assert.equal(endCount, 1, 'onPanEnd should have been called 1 time');
     });
   }
@@ -102,6 +110,46 @@ module('Integration | Modifier | did-pan', function (hooks) {
     this.set('axis', 'both');
     assert.dom('[data-test-div]').hasStyle({
       'touch-action': 'none',
+    });
+  });
+
+  module('event bubbling & capture', function () {
+    test(`it works with bubble events`, async function (assert) {
+      this.handlePanStart = (step) => {
+        assert.step(step);
+      };
+
+      await render(
+        hbs`
+        <div {{did-pan onPanStart=(fn this.handlePanStart "A")}}>
+          <div {{did-pan onPanStart=(fn this.handlePanStart "B")}}>
+            <div class="did-pan" style="width: 50px; height: 10px; background: red"></div>
+          </div>
+        </div>
+      `
+      );
+      await pan('.did-pan', 'right', 'touch');
+
+      assert.verifySteps(['B', 'A']);
+    });
+
+    test(`it works with capture events`, async function (assert) {
+      this.handlePanStart = (step) => {
+        assert.step(step);
+      };
+
+      await render(
+        hbs`
+        <div {{did-pan capture=true onPanStart=(fn this.handlePanStart "A")}}>
+          <div {{did-pan capture=false onPanStart=(fn this.handlePanStart "B")}}>
+            <div class="did-pan" style="width: 50px; height: 10px; background: red"></div>
+          </div>
+        </div>
+      `
+      );
+      await pan('.did-pan', 'right', 'touch');
+
+      assert.verifySteps(['A', 'B']);
     });
   });
 
