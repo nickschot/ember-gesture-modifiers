@@ -1143,22 +1143,22 @@
     mkdirp "^1.0.4"
     silent-error "^1.1.1"
 
-"@ember/test-helpers@2.2.5":
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-2.2.5.tgz#9f915310b79fd6330e8e19857958e5f241c1d0de"
-  integrity sha512-E0GMlkmRb9r3lHa+88gtfZcve+IlAS3yoUsB5QSSTC8oRTGhqzirvsxYAylCj8n40gfoOHdqKEZxncYhVimZwg==
+"@ember/test-helpers@2.2.8":
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-2.2.8.tgz#3f1c1ab828098e4a6a6209b7c28b124ac614a73f"
+  integrity sha512-1en4cBDoI3+1xtl7k5QtGpPgKmuvF0D7Azs0JSlv3ttV1Fxb3ukLZ/2Giz1IOEMogO4B+k7fGFeYpANVJuNWqA==
   dependencies:
-    "@ember/test-waiters" "^2.4.3"
+    "@ember/test-waiters" "^2.4.4"
     broccoli-debug "^0.6.5"
-    broccoli-funnel "^3.0.3"
-    ember-cli-babel "^7.26.2"
+    broccoli-funnel "^3.0.6"
+    ember-cli-babel "^7.26.6"
     ember-cli-htmlbars "^5.7.1"
     ember-destroyable-polyfill "^2.0.3"
 
-"@ember/test-waiters@^2.4.3":
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/@ember/test-waiters/-/test-waiters-2.4.3.tgz#44c144fad5e3a5858b02604c1df7edea61a52dbf"
-  integrity sha512-2Nq1y5+mbBg2QeP57JaOrhfCCu2tEBr8QA3XrJw6uutnU5heNKIROnh1gskqDg72m8lqocA1UFzpCQIg4XQywQ==
+"@ember/test-waiters@^2.4.4":
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/@ember/test-waiters/-/test-waiters-2.4.4.tgz#4239d4cd9c60dc081d83e031463c22a628db028e"
+  integrity sha512-dhz4WplPWEPZ0Z8iJBI0uvUurv6Sk4aogNiI1XQxDXDNT13aE4WI/uQdsZXZtC+4xOUkz5V6Ob7iaEHDMixjbw==
   dependencies:
     calculate-cache-key-for-tree "^2.0.0"
     ember-cli-babel "^7.26.2"
@@ -3307,6 +3307,19 @@ broccoli-funnel@^3.0.3:
     path-posix "^1.0.0"
     walk-sync "^2.0.2"
 
+broccoli-funnel@^3.0.6:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/broccoli-funnel/-/broccoli-funnel-3.0.7.tgz#003c1e90e15f2416ccaad7a12667bfeaed843123"
+  integrity sha512-DuiMqbR3eHY/c5ctOd0d/aqiGcY3r8Ynoz12vxTsEp5vRkFaIRuMhz5w7UHJbMcoC9nMNnY9hGrvVFODngPRXw==
+  dependencies:
+    array-equal "^1.0.0"
+    broccoli-plugin "^4.0.7"
+    debug "^4.1.1"
+    fs-tree-diff "^2.0.1"
+    heimdalljs "^0.2.0"
+    minimatch "^3.0.0"
+    walk-sync "^2.0.2"
+
 broccoli-kitchen-sink-helpers@^0.2.5:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/broccoli-kitchen-sink-helpers/-/broccoli-kitchen-sink-helpers-0.2.9.tgz#a5e0986ed8d76fb5984b68c3f0450d3a96e36ecc"
@@ -3515,6 +3528,19 @@ broccoli-plugin@^4.0.1, broccoli-plugin@^4.0.2, broccoli-plugin@^4.0.3:
     quick-temp "^0.1.3"
     rimraf "^3.0.0"
     symlink-or-copy "^1.3.0"
+
+broccoli-plugin@^4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/broccoli-plugin/-/broccoli-plugin-4.0.7.tgz#dd176a85efe915ed557d913744b181abe05047db"
+  integrity sha512-a4zUsWtA1uns1K7p9rExYVYG99rdKeGRymW0qOCNkvDPHQxVi3yVyJHhQbM3EZwdt2E0mnhr5e0c/bPpJ7p3Wg==
+  dependencies:
+    broccoli-node-api "^1.7.0"
+    broccoli-output-wrapper "^3.2.5"
+    fs-merger "^3.2.1"
+    promise-map-series "^0.3.0"
+    quick-temp "^0.1.8"
+    rimraf "^3.0.2"
+    symlink-or-copy "^1.3.1"
 
 broccoli-slow-trees@^3.0.1, broccoli-slow-trees@^3.1.0:
   version "3.1.0"
@@ -4960,6 +4986,39 @@ ember-cli-babel@^7.0.0, ember-cli-babel@^7.10.0, ember-cli-babel@^7.13.0, ember-
   version "7.26.3"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.26.3.tgz#e93ce7ec458208894d10844cf76e41cc06fdbeb6"
   integrity sha512-ZCs0g99d3kYaHs1+HT33oMY7/K+nLCAAv7dCLxsMzg7cQf55O6Pq4ZKnWEr3IHVs33xbJFnEb9prt1up36QVnw==
+  dependencies:
+    "@babel/core" "^7.12.0"
+    "@babel/helper-compilation-targets" "^7.12.0"
+    "@babel/plugin-proposal-class-properties" "^7.13.0"
+    "@babel/plugin-proposal-decorators" "^7.13.5"
+    "@babel/plugin-transform-modules-amd" "^7.13.0"
+    "@babel/plugin-transform-runtime" "^7.13.9"
+    "@babel/plugin-transform-typescript" "^7.13.0"
+    "@babel/polyfill" "^7.11.5"
+    "@babel/preset-env" "^7.12.0"
+    "@babel/runtime" "7.12.18"
+    amd-name-resolver "^1.3.1"
+    babel-plugin-debug-macros "^0.3.4"
+    babel-plugin-ember-data-packages-polyfill "^0.1.2"
+    babel-plugin-ember-modules-api-polyfill "^3.5.0"
+    babel-plugin-module-resolver "^3.2.0"
+    broccoli-babel-transpiler "^7.8.0"
+    broccoli-debug "^0.6.4"
+    broccoli-funnel "^2.0.2"
+    broccoli-source "^2.1.2"
+    clone "^2.1.2"
+    ember-cli-babel-plugin-helpers "^1.1.1"
+    ember-cli-version-checker "^4.1.0"
+    ensure-posix-path "^1.0.2"
+    fixturify-project "^1.10.0"
+    resolve-package-path "^3.1.0"
+    rimraf "^3.0.1"
+    semver "^5.5.0"
+
+ember-cli-babel@^7.26.6:
+  version "7.26.6"
+  resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.26.6.tgz#322fbbd3baad9dd99e3276ff05bc6faef5e54b39"
+  integrity sha512-040svtfj2RC35j/WMwdWJFusZaXmNoytLAMyBDGLMSlRvznudTxZjGlPV6UupmtTBApy58cEF8Fq4a+COWoEmQ==
   dependencies:
     "@babel/core" "^7.12.0"
     "@babel/helper-compilation-targets" "^7.12.0"
@@ -6655,6 +6714,17 @@ fs-merger@^3.1.0:
     fs-tree-diff "^2.0.1"
     rimraf "^2.6.3"
     walk-sync "^2.0.2"
+
+fs-merger@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/fs-merger/-/fs-merger-3.2.1.tgz#a225b11ae530426138294b8fbb19e82e3d4e0b3b"
+  integrity sha512-AN6sX12liy0JE7C2evclwoo0aCG3PFulLjrTLsJpWh/2mM+DinhpSGqYLbHBBbIW1PLRNcFhJG8Axtz8mQW3ug==
+  dependencies:
+    broccoli-node-api "^1.7.0"
+    broccoli-node-info "^2.1.0"
+    fs-extra "^8.0.1"
+    fs-tree-diff "^2.0.1"
+    walk-sync "^2.2.0"
 
 fs-minipass@^2.0.0:
   version "2.1.0"
