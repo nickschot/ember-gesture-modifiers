@@ -58,20 +58,20 @@ async function _pan(element, options = {}) {
   const {
     startX = direction === 'left'
       ? right - 1
-      : direction === 'right'
+      : direction === 'right' || direction === 'up-right'
       ? left + 1
       : middleX,
     endX = direction === 'left'
       ? left + 1
-      : direction === 'right'
+      : direction === 'right' || direction === 'up-right'
       ? right - 1
       : middleX,
-    startY = direction === 'up'
+    startY = direction === 'up' || direction === 'up-right'
       ? bottom - 1
       : direction === 'down'
       ? top + 1
       : middleY,
-    endY = direction === 'up'
+    endY = direction === 'up' || direction === 'up-right'
       ? top + 1
       : direction === 'down'
       ? bottom - 1
@@ -87,11 +87,11 @@ async function _pan(element, options = {}) {
     const x =
       direction === 'left'
         ? startX - ((startX - endX) / steps) * i
-        : direction === 'right'
+        : direction === 'right' || direction === 'up-right'
         ? ((endX - startX) / steps) * i
         : middleX;
     const y =
-      direction === 'up'
+      direction === 'up' || direction === 'up-right'
         ? startY - ((startY - endY) / steps) * i
         : direction === 'down'
         ? ((endY - startX) / steps) * i
