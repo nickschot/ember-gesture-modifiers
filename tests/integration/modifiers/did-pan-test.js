@@ -153,5 +153,82 @@ module('Integration | Modifier | did-pan', function (hooks) {
     });
   });
 
-  // TODO: vertical/bi-directional pan tests (axis=vertical,both)
+  module('vertical pan', function () {
+    test(`it works on the vertical axis`, async function (assert) {
+      let startCount = 0;
+      let panCount = 0;
+      let endCount = 0;
+
+      this.handlePanStart = () => {
+        startCount++;
+      };
+      this.handlePan = () => {
+        panCount++;
+      };
+      this.handlePanEnd = () => {
+        endCount++;
+      };
+
+      await render(
+        hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd axis="vertical"}} style="width: 10px; height: 50px; background: red;"></div>`
+      );
+      await pan('.did-pan', 'down', 'touch');
+
+      assert.equal(startCount, 1, 'onPanStart should have been called 1 time');
+      assert.equal(panCount, 12, `onPan should have been called 12 times`);
+      assert.equal(endCount, 1, 'onPanEnd should have been called 1 time');
+    });
+
+    test(`it does not react to a horizontal pan`, async function (assert) {
+      let startCount = 0;
+      let panCount = 0;
+      let endCount = 0;
+
+      this.handlePanStart = () => {
+        startCount++;
+      };
+      this.handlePan = () => {
+        panCount++;
+      };
+      this.handlePanEnd = () => {
+        endCount++;
+      };
+
+      await render(
+        hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd axis="vertical"}} style="width: 10px; height: 50px; background: red;"></div>`
+      );
+      await pan('.did-pan', 'right', 'touch');
+
+      assert.equal(startCount, 0, 'onPanStart should have been called 0 times');
+      assert.equal(panCount, 0, `onPan should have been called 0 times`);
+      assert.equal(endCount, 0, 'onPanEnd should have been called 0 times');
+    });
+  });
+
+  module('bi-directional pan', function () {
+    test('it works when panning bi-directionally', async function (assert) {
+      let startCount = 0;
+      let panCount = 0;
+      let endCount = 0;
+
+      this.handlePanStart = () => {
+        startCount++;
+      };
+      this.handlePan = () => {
+        panCount++;
+      };
+      this.handlePanEnd = () => {
+        endCount++;
+      };
+
+      await render(
+        hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd axis="both"}} style="width: 50px; height: 50px; background: red;"></div>`
+      );
+      await pan('.did-pan', 'up-right', 'touch');
+
+      assert.equal(startCount, 1, 'onPanStart should have been called 1 time');
+      assert.equal(panCount, 14, `onPan should have been called 12 times`);
+      assert.equal(endCount, 1, 'onPanEnd should have been called 1 time');
+    });
+  });
 });

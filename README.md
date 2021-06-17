@@ -91,7 +91,7 @@ import { pan } from 'ember-gesture-modifiers/test-support';
 ...
 
 // arg1: CSS selector on which the pan happens
-// arg2: a direction in which the pan should happen. Either 'left' or 'right'.
+// arg2: a direction in which the pan should happen. Either 'left', 'right', 'down', 'up' or 'up-right'.
 await pan('.my-css-selector', 'right');
 ```
 
