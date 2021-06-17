@@ -1,4 +1,37 @@
 
+## v1.1.0 (2021-06-17)
+
+#### :rocket: Enhancement
+* [#60](https://github.com/nickschot/ember-gesture-modifiers/pull/60) Add vertical & bi-directional test coverage & pan test-helper extension ([@nickschot](https://github.com/nickschot))
+
+#### :bug: Bug Fix
+* [#53](https://github.com/nickschot/ember-gesture-modifiers/pull/53) fix capture argument not working & add test coverage ([@nickschot](https://github.com/nickschot))
+
+#### :memo: Documentation
+* [#42](https://github.com/nickschot/ember-gesture-modifiers/pull/42) fix minimum supported Ember.js version in README ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#41](https://github.com/nickschot/ember-gesture-modifiers/pull/41) add github CI configuration ([@nickschot](https://github.com/nickschot))
+* [#37](https://github.com/nickschot/ember-gesture-modifiers/pull/37) enable renovatebot ([@nickschot](https://github.com/nickschot))
+* [#30](https://github.com/nickschot/ember-gesture-modifiers/pull/30) upgrade to ember-cli 3.26, add embroider test setup ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
+## v1.1.0-beta.1 (2021-02-03)
+
+#### :rocket: Enhancement
+* [#22](https://github.com/nickschot/ember-gesture-modifiers/pull/22) add proper drag support for mouse based pointer events ([@nickschot](https://github.com/nickschot))
+* [#21](https://github.com/nickschot/ember-gesture-modifiers/pull/21) add bidirectional pan support ([@nickschot](https://github.com/nickschot))
+
+#### :memo: Documentation
+* [#19](https://github.com/nickschot/ember-gesture-modifiers/pull/19) fix pointerTypes argument documentation ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v1.0.0 (2020-11-19)
 
 #### :boom: Breaking Change
