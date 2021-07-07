@@ -35,12 +35,7 @@ function sendEvent(element, type, x, y, pointerType) {
 }
 
 async function _pan(element, options = {}) {
-  const {
-    clientTop: top,
-    clientLeft: left,
-    clientWidth: width,
-    clientHeight: height,
-  } = element;
+  const { top, left, width, height } = element.getBoundingClientRect();
 
   const {
     direction = 'right',
@@ -88,13 +83,13 @@ async function _pan(element, options = {}) {
       direction === 'left'
         ? startX - ((startX - endX) / steps) * i
         : direction === 'right' || direction === 'up-right'
-        ? ((endX - startX) / steps) * i
+        ? startX + ((endX - startX) / steps) * i
         : middleX;
     const y =
       direction === 'up' || direction === 'up-right'
         ? startY - ((startY - endY) / steps) * i
         : direction === 'down'
-        ? ((endY - startX) / steps) * i
+        ? startY + ((endY - startY) / steps) * i
         : middleY;
 
     sendEvent(document, 'pointermove', x, y, pointerType);
