@@ -160,6 +160,7 @@ export default class DidPanModifier extends Modifier {
 
         this.didPan(touchData.data);
       } else {
+        console.log(touchData);
         // only pan when the threshold for the given axis is achieved
         if (
           !touchData.panDenied &&
