@@ -1,4 +1,13 @@
 
+## v1.1.1 (2021-07-07)
+
+#### :bug: Bug Fix
+* [#69](https://github.com/nickschot/ember-gesture-modifiers/pull/69) fix pan test-helper calculating coordinates for intermediate events incorrectly in certain cases ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v1.1.0 (2021-06-17)
 
 #### :rocket: Enhancement
