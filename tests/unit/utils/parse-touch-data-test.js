@@ -82,19 +82,19 @@ module('Unit | Utility | parse-touch-data', function () {
 
     let e2 = createMockPointerEvent('pointermove', 42, 33, 52);
     let touchData = parseTouchData(initialTouchData, e2);
-    assert.equal(isHorizontal(touchData), true);
+    assert.true(isHorizontal(touchData));
 
     e2 = createMockPointerEvent('pointermove', -42, -33, 52);
     touchData = parseTouchData(initialTouchData, e2);
-    assert.equal(isHorizontal(touchData), true);
+    assert.true(isHorizontal(touchData));
 
     e2 = createMockPointerEvent('pointermove', 0, 0, 52);
     touchData = parseTouchData(initialTouchData, e2);
-    assert.equal(isHorizontal(touchData), false);
+    assert.false(isHorizontal(touchData));
 
     e2 = createMockPointerEvent('pointermove', -33, -42, 52);
     touchData = parseTouchData(initialTouchData, e2);
-    assert.equal(isHorizontal(touchData), false);
+    assert.false(isHorizontal(touchData));
   });
 
   test('it detects a touch as vertical', function (assert) {
@@ -105,18 +105,18 @@ module('Unit | Utility | parse-touch-data', function () {
 
     let e2 = createMockPointerEvent('pointermove', 42, 33, 52);
     let touchData = parseTouchData(initialTouchData, e2);
-    assert.equal(isVertical(touchData), false);
+    assert.false(isVertical(touchData));
 
     e2 = createMockPointerEvent('pointermove', -42, -33, 52);
     touchData = parseTouchData(initialTouchData, e2);
-    assert.equal(isVertical(touchData), false);
+    assert.false(isVertical(touchData));
 
     e2 = createMockPointerEvent('pointermove', 0, 0, 52);
     touchData = parseTouchData(initialTouchData, e2);
-    assert.equal(isVertical(touchData), false);
+    assert.false(isVertical(touchData));
 
     e2 = createMockPointerEvent('pointermove', -33, -42, 52);
     touchData = parseTouchData(initialTouchData, e2);
-    assert.equal(isVertical(touchData), true);
+    assert.true(isVertical(touchData));
   });
 });

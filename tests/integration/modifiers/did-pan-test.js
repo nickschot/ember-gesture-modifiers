@@ -53,9 +53,8 @@ module('Integration | Modifier | did-pan', function (hooks) {
 
     this.threshold = 30;
     this.handlePanStart = (e) => {
-      assert.equal(
+      assert.true(
         e.current.distanceX > this.threshold,
-        true,
         `distanceX (${e.current.distanceX}) should be bigger than threshold (${this.threshold})`
       );
       didStart = true;
@@ -66,7 +65,7 @@ module('Integration | Modifier | did-pan', function (hooks) {
     );
     await pan('.did-pan', 'right');
 
-    assert.equal(didStart, true, 'onPanStart should have been called');
+    assert.true(didStart, 'onPanStart should have been called');
   });
 
   test(`it does not fire the passed hooks when the threshold isn't met`, async function (assert) {
@@ -85,7 +84,7 @@ module('Integration | Modifier | did-pan', function (hooks) {
     );
     await pan('.did-pan', 'right');
 
-    assert.equal(didStart, false, 'onPanStart should not have been called');
+    assert.false(didStart, 'onPanStart should not have been called');
   });
 
   test(`it sets the correct touch-action for the passed axis`, async function (assert) {
