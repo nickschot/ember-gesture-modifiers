@@ -15,7 +15,7 @@
   "scripts": {
     "build": "ember build --environment=production",
     "changelog": "lerna-changelog --from=v0.1.0 > CHANGELOG.md",
-    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel 'lint:!(fix)'",
+    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
@@ -27,14 +27,14 @@
     "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^7.26.3",
+    "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^5.7.1",
     "ember-modifier": "^2.1.0"
   },
   "devDependencies": {
     "@ember/optional-features": "2.0.0",
     "@ember/test-helpers": "2.2.8",
-    "@embroider/test-setup": "0.39.1",
+    "@embroider/test-setup": "0.43.0",
     "@glimmer/component": "1.0.4",
     "@glimmer/tracking": "1.0.4",
     "babel-eslint": "10.1.0",
@@ -61,6 +61,7 @@
     "eslint-plugin-ember": "10.5.1",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-qunit": "^6.1.1",
     "lerna-changelog": "1.0.1",
     "loader.js": "4.7.0",
     "npm-run-all": "4.1.5",
@@ -76,5 +77,8 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "volta": {
+    "node": "16.4.2"
   }
 }
