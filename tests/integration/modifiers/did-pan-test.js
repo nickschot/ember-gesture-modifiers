@@ -9,8 +9,8 @@ module('Integration | Modifier | did-pan', function (hooks) {
 
   for (const [pointerType, expectedPanCount] of Object.entries({
     mouse: 19,
-    touch: 9,
-    pen: 9,
+    touch: 19,
+    pen: 19,
   })) {
     test(`it fires the passed hooks when panning with a pointer of type "${pointerType}"`, async function (assert) {
       let startCount = 0;
@@ -174,7 +174,7 @@ module('Integration | Modifier | did-pan', function (hooks) {
       await pan('.did-pan', 'down', 'touch');
 
       assert.equal(startCount, 1, 'onPanStart should have been called 1 time');
-      assert.equal(panCount, 9, `onPan should have been called 9 times`);
+      assert.equal(panCount, 19, `onPan should have been called 19 times`);
       assert.equal(endCount, 1, 'onPanEnd should have been called 1 time');
     });
 
@@ -226,7 +226,7 @@ module('Integration | Modifier | did-pan', function (hooks) {
       await pan('.did-pan', 'up-right', 'touch');
 
       assert.equal(startCount, 1, 'onPanStart should have been called 1 time');
-      assert.equal(panCount, 11, `onPan should have been called 11 times`);
+      assert.equal(panCount, 23, `onPan should have been called 23 times`);
       assert.equal(endCount, 1, 'onPanEnd should have been called 1 time');
     });
   });
