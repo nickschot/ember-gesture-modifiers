@@ -36,13 +36,21 @@ module('Integration | Modifier | did-pan', function (hooks) {
       );
       await pan('.did-pan', 'right', pointerType);
 
-      assert.equal(startCount, 1, 'onPanStart should have been called 1 time');
-      assert.equal(
+      assert.strictEqual(
+        startCount,
+        1,
+        'onPanStart should have been called 1 time'
+      );
+      assert.strictEqual(
         panCount,
         expectedPanCount,
         `onPan should have been called ${expectedPanCount} times`
       );
-      assert.equal(endCount, 1, 'onPanEnd should have been called 1 time');
+      assert.strictEqual(
+        endCount,
+        1,
+        'onPanEnd should have been called 1 time'
+      );
     });
   }
 
@@ -173,9 +181,21 @@ module('Integration | Modifier | did-pan', function (hooks) {
       );
       await pan('.did-pan', 'down', 'touch');
 
-      assert.equal(startCount, 1, 'onPanStart should have been called 1 time');
-      assert.equal(panCount, 19, `onPan should have been called 19 times`);
-      assert.equal(endCount, 1, 'onPanEnd should have been called 1 time');
+      assert.strictEqual(
+        startCount,
+        1,
+        'onPanStart should have been called 1 time'
+      );
+      assert.strictEqual(
+        panCount,
+        19,
+        `onPan should have been called 19 times`
+      );
+      assert.strictEqual(
+        endCount,
+        1,
+        'onPanEnd should have been called 1 time'
+      );
     });
 
     test(`it does not react to a horizontal pan`, async function (assert) {
@@ -198,9 +218,17 @@ module('Integration | Modifier | did-pan', function (hooks) {
       );
       await pan('.did-pan', 'right', 'touch');
 
-      assert.equal(startCount, 0, 'onPanStart should have been called 0 times');
-      assert.equal(panCount, 0, `onPan should have been called 0 times`);
-      assert.equal(endCount, 0, 'onPanEnd should have been called 0 times');
+      assert.strictEqual(
+        startCount,
+        0,
+        'onPanStart should have been called 0 times'
+      );
+      assert.strictEqual(panCount, 0, `onPan should have been called 0 times`);
+      assert.strictEqual(
+        endCount,
+        0,
+        'onPanEnd should have been called 0 times'
+      );
     });
   });
 
@@ -225,9 +253,21 @@ module('Integration | Modifier | did-pan', function (hooks) {
       );
       await pan('.did-pan', 'up-right', 'touch');
 
-      assert.equal(startCount, 1, 'onPanStart should have been called 1 time');
-      assert.equal(panCount, 23, `onPan should have been called 23 times`);
-      assert.equal(endCount, 1, 'onPanEnd should have been called 1 time');
+      assert.strictEqual(
+        startCount,
+        1,
+        'onPanStart should have been called 1 time'
+      );
+      assert.strictEqual(
+        panCount,
+        23,
+        `onPan should have been called 23 times`
+      );
+      assert.strictEqual(
+        endCount,
+        1,
+        'onPanEnd should have been called 1 time'
+      );
     });
   });
 });
