@@ -1,4 +1,22 @@
 
+## v2.0.0 (2021-10-23)
+
+#### :boom: Breaking Change
+* [#72](https://github.com/nickschot/ember-gesture-modifiers/pull/72) drop node 10 support ([@nickschot](https://github.com/nickschot))
+
+#### :bug: Bug Fix
+* [#137](https://github.com/nickschot/ember-gesture-modifiers/pull/137) use document based event handlers for pointer move/up/cancel for all pointer types ([@nickschot](https://github.com/nickschot))
+* [#71](https://github.com/nickschot/ember-gesture-modifiers/pull/71) fix parse-touch-data re-export ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#138](https://github.com/nickschot/ember-gesture-modifiers/pull/138) use ember-auto-import v2 in ember-beta test scenario ([@nickschot](https://github.com/nickschot))
+* [#76](https://github.com/nickschot/ember-gesture-modifiers/pull/76) remove console.log from modifier code ([@nickschot](https://github.com/nickschot))
+* [#73](https://github.com/nickschot/ember-gesture-modifiers/pull/73) upgrade to ember-cli 3.27 blueprint ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v1.1.1 (2021-07-07)
 
 #### :bug: Bug Fix
