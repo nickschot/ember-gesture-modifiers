@@ -1,30 +1,25 @@
-ember-gesture-modifiers
-==============================================================================
+# ember-gesture-modifiers
 
 Addon that provides gestures as modifiers.
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
-* Ember.js v3.12 or above
-* Ember CLI v2.13 or above
-* Node.js v12 or above
+- Ember.js v3.24 or above
+- Ember CLI v3.24 or above
+- Node.js v12 or above
 
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-gesture-modifiers
 ```
 
-
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 Currently only a Pan modifier is provided. More gestures will be added in the future.
 
 ## Pan modifier
+
 ```handlebars
 <div
   {{did-pan
@@ -36,16 +31,18 @@ Currently only a Pan modifier is provided. More gestures will be added in the fu
 ```
 
 ### arguments
- - **onPanStart** - hook fired when a pan is started
- - **onPan** - hook fired when the pan is updated
- - **onPanEnd** - hook fired when a pan has ended
- - **threshold** _(default: 10)_ - minimum touch movement needed in px to start a pan
- - **axis** _(default: 'horizontal')_ - axis for the pan event to be recognized ('horizontal', 'vertical' or 'both')
- - **capture** _(default: false)_ - whether or not to use capture events instead of bubbling
- - **preventScroll** _(default: true)_ - whether or not to prevent scroll during panning
- - **pointerTypes** _(default: ['touch'])_ - the pointer types to support (one or more of 'touch', 'mouse', 'pen')
+
+- **onPanStart** - hook fired when a pan is started
+- **onPan** - hook fired when the pan is updated
+- **onPanEnd** - hook fired when a pan has ended
+- **threshold** _(default: 10)_ - minimum touch movement needed in px to start a pan
+- **axis** _(default: 'horizontal')_ - axis for the pan event to be recognized ('horizontal', 'vertical' or 'both')
+- **capture** _(default: false)_ - whether or not to use capture events instead of bubbling
+- **preventScroll** _(default: true)_ - whether or not to prevent scroll during panning
+- **pointerTypes** _(default: ['touch'])_ - the pointer types to support (one or more of 'touch', 'mouse', 'pen')
 
 The hooks are passed a TouchData object which looks like:
+
 ```javascript
 {
   originalEvent: <TouchEvent>,
@@ -81,8 +78,8 @@ The hooks are passed a TouchData object which looks like:
 }
 ```
 
-Testing
-------------------------------------------------------------------------------
+## Testing
+
 A `pan` test helper is exposed by the addon.
 
 ```javascript
@@ -95,13 +92,10 @@ import { pan } from 'ember-gesture-modifiers/test-support';
 await pan('.my-css-selector', 'right');
 ```
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
