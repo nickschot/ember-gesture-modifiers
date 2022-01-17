@@ -1,7 +1,8 @@
 
-## v2.0.0 (2021-10-23)
+## v3.0.0 (2022-01-17)
 
 #### :boom: Breaking Change
+* [#188](https://github.com/nickschot/ember-gesture-modifiers/pull/188) feat: Ember v4 Support, drop Ember < 3.24 ([@knownasilya](https://github.com/knownasilya))
 * [#72](https://github.com/nickschot/ember-gesture-modifiers/pull/72) drop node 10 support ([@nickschot](https://github.com/nickschot))
 
 #### :bug: Bug Fix
@@ -13,7 +14,8 @@
 * [#76](https://github.com/nickschot/ember-gesture-modifiers/pull/76) remove console.log from modifier code ([@nickschot](https://github.com/nickschot))
 * [#73](https://github.com/nickschot/ember-gesture-modifiers/pull/73) upgrade to ember-cli 3.27 blueprint ([@nickschot](https://github.com/nickschot))
 
-#### Committers: 1
+#### Committers: 2
+- Ilya Radchenko ([@knownasilya](https://github.com/knownasilya))
 - Nick Schot ([@nickschot](https://github.com/nickschot))
 
 
