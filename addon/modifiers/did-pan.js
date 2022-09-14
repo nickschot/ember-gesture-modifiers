@@ -6,10 +6,18 @@ import {
   isVertical,
 } from '../utils/parse-touch-data';
 import { action } from '@ember/object';
+import { registerDestructor } from '@ember/destroyable';
 
 const _fn = () => {};
 
+function cleanup(instance) {
+  instance.removeEventListeners();
+  instance.currentTouches.clear();
+  instance.element = undefined;
+}
+
 export default class DidPanModifier extends Modifier {
+  element;
   threshold;
   axis;
   capture;
@@ -17,6 +25,29 @@ export default class DidPanModifier extends Modifier {
   pointerTypes;
   currentTouches = new Map();
   dragging = false;
+
+  constructor(owner, args) {
+    super(owner, args);
+    registerDestructor(this, cleanup);
+  }
+
+  modify(element, positional, named) {
+    this.removeEventListeners();
+
+    this.element = element;
+
+    this.threshold = named.threshold ?? 10;
+    this.axis = named.axis ?? 'horizontal';
+    this.capture = named.capture ?? false;
+    this.preventScroll = named.preventScroll ?? true;
+    this.pointerTypes = named.pointerTypes ?? ['touch'];
+
+    this.didPanStart = named.onPanStart ?? _fn;
+    this.didPan = named.onPan ?? _fn;
+    this.didPanEnd = named.onPanEnd ?? _fn;
+
+    this.addEventListeners();
+  }
 
   addEventListeners() {
     // By default, CSS rule `touch-action` is `auto`, enabling panning on both directions.
@@ -50,12 +81,14 @@ export default class DidPanModifier extends Modifier {
   }
 
   removeEventListeners() {
-    this.element.style.touchAction = null;
+    if (this.element) {
+      this.element.style.touchAction = null;
 
-    this.element.removeEventListener('pointerdown', this.didTouchStart, {
-      capture: this.capture,
-      passive: true,
-    });
+      this.element.removeEventListener('pointerdown', this.didTouchStart, {
+        capture: this.capture,
+        passive: true,
+      });
+    }
     document.removeEventListener('pointermove', this.documentPointerMove, {
       capture: this.capture,
       passive: !this.preventScroll,
@@ -157,26 +190,5 @@ export default class DidPanModifier extends Modifier {
 
       this.currentTouches.delete(e.pointerId);
     }
-  }
-
-  didReceiveArguments() {
-    this.removeEventListeners();
-
-    this.threshold = this.args.named.threshold ?? 10;
-    this.axis = this.args.named.axis ?? 'horizontal';
-    this.capture = this.args.named.capture ?? false;
-    this.preventScroll = this.args.named.preventScroll ?? true;
-    this.pointerTypes = this.args.named.pointerTypes ?? ['touch'];
-
-    this.didPanStart = this.args.named.onPanStart ?? _fn;
-    this.didPan = this.args.named.onPan ?? _fn;
-    this.didPanEnd = this.args.named.onPanEnd ?? _fn;
-
-    this.addEventListeners();
-  }
-
-  willRemove() {
-    this.removeEventListeners();
-    this.currentTouches.clear();
   }
 }
