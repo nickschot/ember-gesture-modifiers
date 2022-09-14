@@ -1,4 +1,13 @@
 
+## v4.0.1 (2022-09-14)
+
+#### :bug: Bug Fix
+* [#325](https://github.com/nickschot/ember-gesture-modifiers/pull/325) Require ember-modifier v3.2.0+ to make sure the new modifier syntax is available ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v4.0.0 (2022-09-14)
 
 #### :boom: Breaking Change
@@ -47,6 +56,7 @@
 
 #### Committers: 1
 - Nick Schot ([@nickschot](https://github.com/nickschot))
+
 
 ## v1.1.0 (2021-06-17)
 
