@@ -1,4 +1,13 @@
 
+## v5.0.1 (2023-04-07)
+
+#### :rocket: Enhancement
+* [#432](https://github.com/nickschot/ember-gesture-modifiers/pull/432) Add ember v5 support ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v5.0.0 (2023-02-03)
 
 #### :boom: Breaking Change
