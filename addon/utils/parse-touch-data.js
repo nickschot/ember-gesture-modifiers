@@ -59,7 +59,7 @@ export function parseTouchData(previousTouchData, e) {
     data.initial.x,
     e.clientX,
     data.initial.y,
-    e.clientY
+    e.clientY,
   );
   data.current.distanceX = e.clientX - data.initial.x;
   data.current.distanceY = e.clientY - data.initial.y;
@@ -67,7 +67,7 @@ export function parseTouchData(previousTouchData, e) {
     data.initial.x,
     data.initial.y,
     e.clientX,
-    e.clientY
+    e.clientY,
   );
 
   // overallVelocity can be calculated continuously
@@ -122,7 +122,7 @@ export function parseTouchData(previousTouchData, e) {
 export function isHorizontal(touchData) {
   const direction = getDirection(
     touchData.data.current.distanceX,
-    touchData.data.current.distanceY
+    touchData.data.current.distanceY,
   );
   return direction === 'left' || direction === 'right';
 }
@@ -138,7 +138,7 @@ export function isHorizontal(touchData) {
 export function isVertical(touchData) {
   const direction = getDirection(
     touchData.data.current.distanceX,
-    touchData.data.current.distanceY
+    touchData.data.current.distanceY,
   );
   return direction === 'down' || direction === 'up';
 }
