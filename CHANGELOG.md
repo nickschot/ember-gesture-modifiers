@@ -1,5 +1,5 @@
 
-## v6.0.0-0 (2023-12-08)
+## v6.0.0 (2023-12-08)
 
 #### :boom: Breaking Change
 * [#541](https://github.com/nickschot/ember-gesture-modifiers/pull/541) Drop Node 16 support ([@nickschot](https://github.com/nickschot))
