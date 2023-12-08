@@ -1,4 +1,20 @@
 
+## v6.0.0-0 (2023-12-08)
+
+#### :boom: Breaking Change
+* [#541](https://github.com/nickschot/ember-gesture-modifiers/pull/541) Drop Node 16 support ([@nickschot](https://github.com/nickschot))
+* [#540](https://github.com/nickschot/ember-gesture-modifiers/pull/540) Drop Node 14 support ([@nickschot](https://github.com/nickschot))
+
+#### :rocket: Enhancement
+* [#556](https://github.com/nickschot/ember-gesture-modifiers/pull/556) Convert to V2 addon ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#554](https://github.com/nickschot/ember-gesture-modifiers/pull/554) Replace yarn with pnpm ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v5.0.1 (2023-04-07)
 
 #### :rocket: Enhancement
