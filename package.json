@@ -65,7 +65,7 @@
     "loader.js": "4.7.0",
     "prettier": "2.8.8",
     "qunit": "2.20.0",
-    "qunit-dom": "2.0.0",
+    "qunit-dom": "3.0.0",
     "webpack": "5.89.0"
   },
   "peerDependencies": {
