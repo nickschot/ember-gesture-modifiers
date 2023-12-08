@@ -54,23 +54,23 @@ async function _pan(element, options = {}) {
     startX = direction === 'left'
       ? right - 1
       : direction === 'right' || direction === 'up-right'
-      ? left + 1
-      : middleX,
+        ? left + 1
+        : middleX,
     endX = direction === 'left'
       ? left + 1
       : direction === 'right' || direction === 'up-right'
-      ? right - 1
-      : middleX,
+        ? right - 1
+        : middleX,
     startY = direction === 'up' || direction === 'up-right'
       ? bottom - 1
       : direction === 'down'
-      ? top + 1
-      : middleY,
+        ? top + 1
+        : middleY,
     endY = direction === 'up' || direction === 'up-right'
       ? top + 1
       : direction === 'down'
-      ? bottom - 1
-      : middleY,
+        ? bottom - 1
+        : middleY,
   } = options;
 
   const steps = Math.ceil(duration / resolution);
@@ -83,14 +83,14 @@ async function _pan(element, options = {}) {
       direction === 'left'
         ? startX - ((startX - endX) / steps) * i
         : direction === 'right' || direction === 'up-right'
-        ? startX + ((endX - startX) / steps) * i
-        : middleX;
+          ? startX + ((endX - startX) / steps) * i
+          : middleX;
     const y =
       direction === 'up' || direction === 'up-right'
         ? startY - ((startY - endY) / steps) * i
         : direction === 'down'
-        ? startY + ((endY - startY) / steps) * i
-        : middleY;
+          ? startY + ((endY - startY) / steps) * i
+          : middleY;
 
     sendEvent(document, 'pointermove', x, y, pointerType);
     sendEvent(element, 'pointermove', x, y, pointerType);

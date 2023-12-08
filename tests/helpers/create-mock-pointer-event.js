@@ -9,7 +9,7 @@ export default function createMockPointerEvent(
   eventType,
   x,
   y,
-  timeStampDelta = 0
+  timeStampDelta = 0,
 ) {
   // we mock it using an object because we can't otherwise set the timeStamp
   return {

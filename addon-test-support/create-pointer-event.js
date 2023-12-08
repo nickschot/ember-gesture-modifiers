@@ -16,11 +16,11 @@ export default function createPointerEvent(
   x,
   y,
   identifier = 0,
-  pointerType = 'touch'
+  pointerType = 'touch',
 ) {
   assert(
     'Argument "pointerType" must be one of "touch", "mouse" or "pen".',
-    ['touch', 'mouse', 'pen'].includes(pointerType)
+    ['touch', 'mouse', 'pen'].includes(pointerType),
   );
 
   return new PointerEvent(eventType, {

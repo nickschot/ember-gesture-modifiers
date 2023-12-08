@@ -32,24 +32,24 @@ module('Integration | Modifier | did-pan', function (hooks) {
       }
 
       await render(
-        hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd pointerTypes=this.pointerTypes}} style="width: 50px; height: 10px; background: red;"></div>`
+        hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd pointerTypes=this.pointerTypes}} style="width: 50px; height: 10px; background: red;"></div>`,
       );
       await pan('.did-pan', 'right', pointerType);
 
       assert.strictEqual(
         startCount,
         1,
-        'onPanStart should have been called 1 time'
+        'onPanStart should have been called 1 time',
       );
       assert.strictEqual(
         panCount,
         expectedPanCount,
-        `onPan should have been called ${expectedPanCount} times`
+        `onPan should have been called ${expectedPanCount} times`,
       );
       assert.strictEqual(
         endCount,
         1,
-        'onPanEnd should have been called 1 time'
+        'onPanEnd should have been called 1 time',
       );
     });
   }
@@ -63,13 +63,13 @@ module('Integration | Modifier | did-pan', function (hooks) {
     this.handlePanStart = (e) => {
       assert.true(
         e.current.distanceX > this.threshold,
-        `distanceX (${e.current.distanceX}) should be bigger than threshold (${this.threshold})`
+        `distanceX (${e.current.distanceX}) should be bigger than threshold (${this.threshold})`,
       );
       didStart = true;
     };
 
     await render(
-      hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart threshold=this.threshold}} style="width: 100px; height: 10px; background: red"></div>`
+      hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart threshold=this.threshold}} style="width: 100px; height: 10px; background: red"></div>`,
     );
     await pan('.did-pan', 'right');
 
@@ -88,7 +88,7 @@ module('Integration | Modifier | did-pan', function (hooks) {
     this.set('threshold', 47);
 
     await render(
-      hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart threshold=this.threshold}} style="width: 50px; height: 10px; background: red"></div>`
+      hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart threshold=this.threshold}} style="width: 50px; height: 10px; background: red"></div>`,
     );
     await pan('.did-pan', 'right');
 
@@ -97,7 +97,7 @@ module('Integration | Modifier | did-pan', function (hooks) {
 
   test(`it sets the correct touch-action for the passed axis`, async function (assert) {
     await render(
-      hbs`<div data-test-div class="did-pan" {{did-pan axis=this.axis}} style="width: 50px; height: 10px; background: red"></div>`
+      hbs`<div data-test-div class="did-pan" {{did-pan axis=this.axis}} style="width: 50px; height: 10px; background: red"></div>`,
     );
 
     assert.dom('[data-test-div]').hasStyle({
@@ -133,7 +133,7 @@ module('Integration | Modifier | did-pan', function (hooks) {
             <div class="did-pan" style="width: 50px; height: 10px; background: red"></div>
           </div>
         </div>
-      `
+      `,
       );
       await pan('.did-pan', 'right', 'touch');
 
@@ -152,7 +152,7 @@ module('Integration | Modifier | did-pan', function (hooks) {
             <div class="did-pan" style="width: 50px; height: 10px; background: red"></div>
           </div>
         </div>
-      `
+      `,
       );
       await pan('.did-pan', 'right', 'touch');
 
@@ -177,24 +177,24 @@ module('Integration | Modifier | did-pan', function (hooks) {
       };
 
       await render(
-        hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd axis="vertical"}} style="width: 10px; height: 50px; background: red;"></div>`
+        hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd axis="vertical"}} style="width: 10px; height: 50px; background: red;"></div>`,
       );
       await pan('.did-pan', 'down', 'touch');
 
       assert.strictEqual(
         startCount,
         1,
-        'onPanStart should have been called 1 time'
+        'onPanStart should have been called 1 time',
       );
       assert.strictEqual(
         panCount,
         19,
-        `onPan should have been called 19 times`
+        `onPan should have been called 19 times`,
       );
       assert.strictEqual(
         endCount,
         1,
-        'onPanEnd should have been called 1 time'
+        'onPanEnd should have been called 1 time',
       );
     });
 
@@ -214,20 +214,20 @@ module('Integration | Modifier | did-pan', function (hooks) {
       };
 
       await render(
-        hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd axis="vertical"}} style="width: 10px; height: 50px; background: red;"></div>`
+        hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd axis="vertical"}} style="width: 10px; height: 50px; background: red;"></div>`,
       );
       await pan('.did-pan', 'right', 'touch');
 
       assert.strictEqual(
         startCount,
         0,
-        'onPanStart should have been called 0 times'
+        'onPanStart should have been called 0 times',
       );
       assert.strictEqual(panCount, 0, `onPan should have been called 0 times`);
       assert.strictEqual(
         endCount,
         0,
-        'onPanEnd should have been called 0 times'
+        'onPanEnd should have been called 0 times',
       );
     });
   });
@@ -249,24 +249,24 @@ module('Integration | Modifier | did-pan', function (hooks) {
       };
 
       await render(
-        hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd axis="both"}} style="width: 50px; height: 50px; background: red;"></div>`
+        hbs`<div class="did-pan" {{did-pan onPanStart=this.handlePanStart onPan=this.handlePan onPanEnd=this.handlePanEnd axis="both"}} style="width: 50px; height: 50px; background: red;"></div>`,
       );
       await pan('.did-pan', 'up-right', 'touch');
 
       assert.strictEqual(
         startCount,
         1,
-        'onPanStart should have been called 1 time'
+        'onPanStart should have been called 1 time',
       );
       assert.strictEqual(
         panCount,
         23,
-        `onPan should have been called 23 times`
+        `onPan should have been called 23 times`,
       );
       assert.strictEqual(
         endCount,
         1,
-        'onPanEnd should have been called 1 time'
+        'onPanEnd should have been called 1 time',
       );
     });
   });
