@@ -15,10 +15,10 @@
     "test:ember": "pnpm --filter '*' test:ember"
   },
   "devDependencies": {
-    "concurrently": "^8.2.0",
+    "concurrently": "8.2.2",
     "lerna-changelog": "2.2.0",
-    "prettier": "^3.0.3",
-    "prettier-plugin-ember-template-tag": "^1.1.0"
+    "prettier": "3.1.0",
+    "prettier-plugin-ember-template-tag": "1.1.0"
   },
   "pnpm": {
     "overrides": {
