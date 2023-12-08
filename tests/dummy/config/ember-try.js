@@ -5,12 +5,13 @@ const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
 
 module.exports = async function () {
   return {
-    useYarn: true,
+    usePnpm: true,
     scenarios: [
       {
         name: 'ember-lts-3.28',
         npm: {
           devDependencies: {
+            'ember-cli': '~4.12.0',
             'ember-source': '~3.28.0',
           },
         },
@@ -66,6 +67,7 @@ module.exports = async function () {
         },
         npm: {
           devDependencies: {
+            'ember-cli': '~4.12.0',
             'ember-source': '~3.28.0',
           },
           ember: {
