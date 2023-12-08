@@ -77,5 +77,10 @@
   "peerDependencies": {
     "ember-source": ">=3.28.0",
     "@ember/test-helpers": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@ember/test-helpers": {
+      "optional": true
+    }
   }
 }
