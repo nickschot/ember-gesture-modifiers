@@ -1,87 +1,35 @@
 {
-  "name": "ember-gesture-modifiers",
-  "version": "5.0.1",
-  "description": "The default blueprint for ember-cli addons.",
-  "keywords": [
-    "ember-addon"
-  ],
+  "private": true,
   "repository": "https://github.com/nickschot/ember-gesture-modifiers",
   "license": "MIT",
   "author": "Nick Schot <nick@sophorasoft.nl>",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
   "scripts": {
-    "build": "ember build --environment=production",
+    "build": "pnpm --filter ember-gesture-modifiers build",
     "changelog": "lerna-changelog --from=v0.1.0 > CHANGELOG.md",
-    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
-    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
-    "lint:hbs": "ember-template-lint .",
-    "lint:hbs:fix": "ember-template-lint . --fix",
-    "lint:js": "eslint . --cache",
-    "lint:js:fix": "eslint . --fix",
-    "start": "ember serve",
-    "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
-  },
-  "dependencies": {
-    "ember-auto-import": "^2.6.0",
-    "ember-cli-babel": "^7.26.11",
-    "ember-cli-htmlbars": "^6.2.0",
-    "ember-modifier": "^4.0.0"
+    "lint": "pnpm --filter '*' lint",
+    "lint:fix": "pnpm --filter '*' lint:fix",
+    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:addon": "pnpm --filter ember-gesture-modifiers start --no-watch.clearScreen",
+    "start:test-app": "pnpm --filter test-app start",
+    "test": "pnpm --filter '*' test",
+    "test:ember": "pnpm --filter '*' test:ember"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.23.3",
-    "@ember/optional-features": "2.0.0",
-    "@ember/string": "3.1.1",
-    "@ember/test-helpers": "3.2.1",
-    "@embroider/test-setup": "3.0.3",
-    "@glimmer/component": "1.1.2",
-    "@glimmer/tracking": "1.1.2",
-    "broccoli-asset-rev": "3.0.0",
-    "concurrently": "8.2.2",
-    "ember-cli": "5.4.1",
-    "ember-cli-dependency-checker": "3.3.2",
-    "ember-cli-inject-live-reload": "2.1.0",
-    "ember-cli-sri": "2.1.1",
-    "ember-cli-terser": "4.0.2",
-    "ember-load-initializers": "2.1.2",
-    "ember-page-title": "8.1.0",
-    "ember-qunit": "8.0.2",
-    "ember-resolver": "11.0.1",
-    "ember-source": "5.4.0",
-    "ember-source-channel-url": "3.0.0",
-    "ember-template-lint": "5.13.0",
-    "ember-try": "3.0.0",
-    "eslint": "8.55.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-ember": "11.11.1",
-    "eslint-plugin-n": "16.3.1",
-    "eslint-plugin-prettier": "5.0.1",
-    "eslint-plugin-qunit": "7.3.4",
+    "concurrently": "^8.2.0",
     "lerna-changelog": "2.2.0",
-    "loader.js": "4.7.0",
-    "prettier": "3.1.0",
-    "qunit": "2.20.0",
-    "qunit-dom": "3.0.0",
-    "webpack": "5.89.0"
+    "prettier": "^3.0.3",
+    "prettier-plugin-ember-template-tag": "^1.1.0"
   },
-  "peerDependencies": {
-    "ember-source": ">=3.28.0"
-  },
-  "engines": {
-    "node": ">= 18"
-  },
-  "ember": {
-    "edition": "octane"
-  },
-  "ember-addon": {
-    "configPath": "tests/dummy/config"
+  "pnpm": {
+    "overrides": {
+      "@types/eslint": "^7.0.0"
+    }
   },
   "volta": {
     "node": "18.19.0",
     "pnpm": "8.11.0"
+  },
+  "engines": {
+    "node": ">= 18"
   }
 }
