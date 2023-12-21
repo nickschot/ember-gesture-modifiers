@@ -9,6 +9,7 @@ node_modules/
 .pnpm-debug.log
 .sass-cache
 .eslintcache
+.DS_Store
 coverage/
 npm-debug.log*
 yarn-error.log
