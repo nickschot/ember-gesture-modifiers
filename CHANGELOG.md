@@ -1,4 +1,13 @@
 
+## v6.0.1 (2023-12-21)
+
+#### :bug: Bug Fix
+* [#584](https://github.com/nickschot/ember-gesture-modifiers/pull/584) Fix velocity(X/Y) calculation ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
+
 ## v6.0.0 (2023-12-08)
 
 #### :boom: Breaking Change
