@@ -82,9 +82,9 @@ export function parseTouchData(previousTouchData, e) {
       ? data.current.overallVelocityX
       : data.current.overallVelocityY;
 
-  // we don't update the velocity on the final touchend event as nothing but the timestamp has changed
+  // we don't update the velocity on the final pointerup event as nothing but the timestamp has changed
   // which always results in a velocity of 0
-  if (e.type !== 'touchend') {
+  if (e.type !== 'pointerup') {
     const deltaTime = e.timeStamp - data.cache.velocity.timeStamp;
 
     data.current.velocityX =
