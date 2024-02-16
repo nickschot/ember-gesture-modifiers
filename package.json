@@ -5,7 +5,6 @@
   "author": "Nick Schot <nick@sophorasoft.nl>",
   "scripts": {
     "build": "pnpm --filter ember-gesture-modifiers build",
-    "changelog": "lerna-changelog --from=v0.1.0 > CHANGELOG.md",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
@@ -16,20 +15,20 @@
   },
   "devDependencies": {
     "concurrently": "8.2.2",
-    "lerna-changelog": "2.2.0",
     "prettier": "3.2.5",
-    "prettier-plugin-ember-template-tag": "2.0.0"
+    "prettier-plugin-ember-template-tag": "2.0.0",
+    "release-plan": "0.8.0"
   },
-  "pnpm": {
-    "overrides": {
-      "@types/eslint": "^7.0.0"
-    }
+  "engines": {
+    "node": ">= 18"
   },
   "volta": {
     "node": "18.19.1",
     "pnpm": "8.15.3"
   },
-  "engines": {
-    "node": ">= 18"
+  "pnpm": {
+    "overrides": {
+      "@types/eslint": "^7.0.0"
+    }
   }
 }
