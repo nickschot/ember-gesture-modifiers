@@ -1,0 +1,17 @@
+{
+  "solution": {
+    "ember-gesture-modifiers": {
+      "impact": "patch",
+      "oldVersion": "6.0.1",
+      "newVersion": "6.0.2",
+      "constraints": [
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
+        }
+      ],
+      "pkgJSONPath": "./ember-gesture-modifiers/package.json"
+    }
+  },
+  "description": "## Release (2024-03-27)\n\nember-gesture-modifiers 6.0.2 (patch)\n\n#### :house: Internal\n* Other\n  * [#648](https://github.com/nickschot/ember-gesture-modifiers/pull/648) Setup release-plan ([@nickschot](https://github.com/nickschot))\n* `ember-gesture-modifiers`\n  * [#593](https://github.com/nickschot/ember-gesture-modifiers/pull/593) Update dependency prettier-plugin-ember-template-tag to v2 ([@renovate[bot]](https://github.com/apps/renovate))\n\n#### Committers: 1\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n"
+}
