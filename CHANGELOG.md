@@ -1,5 +1,18 @@
 # Changelog
 
+## Release (2024-03-27)
+
+ember-gesture-modifiers 6.0.2 (patch)
+
+#### :house: Internal
+* Other
+  * [#648](https://github.com/nickschot/ember-gesture-modifiers/pull/648) Setup release-plan ([@nickschot](https://github.com/nickschot))
+* `ember-gesture-modifiers`
+  * [#593](https://github.com/nickschot/ember-gesture-modifiers/pull/593) Update dependency prettier-plugin-ember-template-tag to v2 ([@renovate[bot]](https://github.com/apps/renovate))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 
 ## v6.0.1 (2023-12-21)
 
