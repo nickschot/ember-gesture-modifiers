@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "ember-gesture-modifiers": {
+      "oldVersion": "6.0.1"
+    }
+  },
+  "description": "## Release (2024-07-01)\n\n\n\n#### :house: Internal\n* [#648](https://github.com/nickschot/ember-gesture-modifiers/pull/648) Setup release-plan ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 1\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n"
+}
