@@ -1,5 +1,15 @@
 # Changelog
 
+## Release (2024-08-06)
+
+
+
+#### :house: Internal
+* [#648](https://github.com/nickschot/ember-gesture-modifiers/pull/648) Setup release-plan ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 
 ## v6.0.1 (2023-12-21)
 
