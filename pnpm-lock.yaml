@@ -73,8 +73,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0(eslint@8.57.1)
       eslint-plugin-ember:
-        specifier: 12.2.0
-        version: 12.2.0(@babel/core@7.25.9)(eslint@8.57.1)
+        specifier: 12.2.1
+        version: 12.2.1(@babel/core@7.25.9)(eslint@8.57.1)
       eslint-plugin-n:
         specifier: 17.10.2
         version: 17.10.2(eslint@8.57.1)
@@ -202,8 +202,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0(eslint@8.57.1)
       eslint-plugin-ember:
-        specifier: 12.2.0
-        version: 12.2.0(@babel/core@7.25.9)(eslint@8.57.1)
+        specifier: 12.2.1
+        version: 12.2.1(@babel/core@7.25.9)(eslint@8.57.1)
       eslint-plugin-n:
         specifier: 17.10.2
         version: 17.10.2(eslint@8.57.1)
@@ -300,20 +300,6 @@ packages:
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
-
-  /@babel/eslint-parser@7.23.10(@babel/core@7.25.9)(eslint@8.57.1):
-    resolution: {integrity: sha512-3wSYDPZVnhseRnxRJH6ZVTNknBz76AEnyC+AYYhasjP3Yy23qz0ERR7Fcd2SHmYuSFJ2kY9gaaDd3vyqU09eSw==}
-    engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
-    peerDependencies:
-      '@babel/core': ^7.11.0
-      eslint: ^7.5.0 || ^8.0.0
-    dependencies:
-      '@babel/core': 7.25.9
-      '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
-      eslint: 8.57.1
-      eslint-visitor-keys: 2.1.0
-      semver: 6.3.1
-    dev: true
 
   /@babel/eslint-parser@7.25.9(@babel/core@7.25.9)(eslint@8.57.1):
     resolution: {integrity: sha512-5UXfgpK0j0Xr/xIdgdLEhOFxaDZ0bRPWJJchRpqOSur/3rZoPbqqki5mm0p4NE2cs28krBEiSM2MB7//afRSQQ==}
@@ -6177,8 +6163,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-eslint-parser@0.4.3(@babel/core@7.25.9)(eslint@8.57.1):
-    resolution: {integrity: sha512-wMPoaaA+i/F/tPPxURRON9XXJH5MRUOZ5x/9CVJTSpL+0n4EWphyztb20gR+ZJeShnOACQpAdFy6YSS1/JSHKw==}
+  /ember-eslint-parser@0.5.3(@babel/core@7.25.9)(eslint@8.57.1):
+    resolution: {integrity: sha512-FYsoiVcGUGDAybPq8X551hcs9NA0SDx77kfU1sHCTLYqfG4zQ0Rcy+lGxoaXaskH7sTf+Up3/oVyjx/+nJ3joA==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       '@babel/core': ^7.23.6
@@ -6188,9 +6174,9 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.25.9
-      '@babel/eslint-parser': 7.23.10(@babel/core@7.25.9)(eslint@8.57.1)
+      '@babel/eslint-parser': 7.25.9(@babel/core@7.25.9)(eslint@8.57.1)
       '@glimmer/syntax': 0.92.0
-      content-tag: 1.2.2
+      content-tag: 2.0.1
       eslint-scope: 7.2.2
       html-tags: 3.3.1
     transitivePeerDependencies:
@@ -6715,8 +6701,8 @@ packages:
     resolution: {integrity: sha512-Uk/TVLt6Nf6Xoz7C1iYuZjOSdJxe5aaauGRke8JhKeJwD66Y61/pY2FjtLP04Ooq9PwV34bzrkKkU2UZ5FtDRA==}
     dev: true
 
-  /eslint-plugin-ember@12.2.0(@babel/core@7.25.9)(eslint@8.57.1):
-    resolution: {integrity: sha512-Pf0LB70qzrGqbxrieASFDqxvGu7/xgejM78Kj+VsH27XqkuoluF1M5fBU5xxNB7oRCpA5IFA5jdN9WnnSjLzKA==}
+  /eslint-plugin-ember@12.2.1(@babel/core@7.25.9)(eslint@8.57.1):
+    resolution: {integrity: sha512-HZZueTKXmQRDVxREiMLdh87sLFmmkjH3z37gsS0pLWtnZECJiG447GCd+odVgWpSKoDpB4Hce0BtoJeY2HGSlg==}
     engines: {node: 18.* || 20.* || >= 21}
     peerDependencies:
       '@typescript-eslint/parser': '*'
@@ -6727,7 +6713,7 @@ packages:
     dependencies:
       '@ember-data/rfc395-data': 0.0.4
       css-tree: 2.3.1
-      ember-eslint-parser: 0.4.3(@babel/core@7.25.9)(eslint@8.57.1)
+      ember-eslint-parser: 0.5.3(@babel/core@7.25.9)(eslint@8.57.1)
       ember-rfc176-data: 0.3.18
       eslint: 8.57.1
       eslint-utils: 3.0.0(eslint@8.57.1)
