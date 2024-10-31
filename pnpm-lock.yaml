@@ -73,8 +73,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0(eslint@8.57.1)
       eslint-plugin-ember:
-        specifier: 12.2.1
-        version: 12.2.1(@babel/core@7.26.0)(eslint@8.57.1)
+        specifier: 12.3.1
+        version: 12.3.1(@babel/core@7.26.0)(eslint@8.57.1)
       eslint-plugin-n:
         specifier: 17.10.3
         version: 17.10.3(eslint@8.57.1)
@@ -202,8 +202,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0(eslint@8.57.1)
       eslint-plugin-ember:
-        specifier: 12.2.1
-        version: 12.2.1(@babel/core@7.26.0)(eslint@8.57.1)
+        specifier: 12.3.1
+        version: 12.3.1(@babel/core@7.26.0)(eslint@8.57.1)
       eslint-plugin-n:
         specifier: 17.10.3
         version: 17.10.3(eslint@8.57.1)
@@ -2212,12 +2212,6 @@ packages:
     dependencies:
       '@simple-dom/interface': 1.4.0
 
-  /@glimmer/interfaces@0.92.0:
-    resolution: {integrity: sha512-SKZvIs+ZPN8F3EH8kEzs7rGIUa+wuV+/3oWYyEiBrqd+VrZlmAxIELM6qZ6oxXT2tx6q1rh2EmA5rWezi6bmYQ==}
-    dependencies:
-      '@simple-dom/interface': 1.4.0
-    dev: true
-
   /@glimmer/interfaces@0.92.3:
     resolution: {integrity: sha512-QwQeA01N+0h+TAi/J7iUnZtRuJy+093hNyagxDQBA6b1wCBw+q+al9+O6gmbWlkWE7EifzmNE1nnrgcecJBlJQ==}
     dependencies:
@@ -2318,16 +2312,6 @@ packages:
       '@handlebars/parser': 2.0.0
       simple-html-tokenizer: 0.5.11
 
-  /@glimmer/syntax@0.92.0:
-    resolution: {integrity: sha512-h8pYBC2cCnEyjbZBip2Yw4qi8S8sjNCYAb57iHek3AIhyFKMM13aTN+/aajFOM4FUTMCVE2B/iAAmO41WRCX4A==}
-    dependencies:
-      '@glimmer/interfaces': 0.92.0
-      '@glimmer/util': 0.92.0
-      '@glimmer/wire-format': 0.92.0
-      '@handlebars/parser': 2.0.0
-      simple-html-tokenizer: 0.5.11
-    dev: true
-
   /@glimmer/syntax@0.92.3:
     resolution: {integrity: sha512-7wPKQmULyXCYf0KvbPmfrs/skPISH2QGR9atCnmDWnHyLv5SSZVLm1P0Ctrpta6+Ci3uGQb7hGk0IjsLEavcYQ==}
     dependencies:
@@ -2353,13 +2337,6 @@ packages:
       '@glimmer/env': 0.1.7
       '@glimmer/interfaces': 0.84.3
       '@simple-dom/interface': 1.4.0
-
-  /@glimmer/util@0.92.0:
-    resolution: {integrity: sha512-Fap52smLp8RkCgvozrZG7RysNJ2T6mk1SPoknMzmukbabFVBAzxl5iyY4OXUbmR09j6t2pupjF6sPabnLtL4vw==}
-    dependencies:
-      '@glimmer/env': 0.1.7
-      '@glimmer/interfaces': 0.92.0
-    dev: true
 
   /@glimmer/util@0.92.3:
     resolution: {integrity: sha512-K1oH93gGU36slycxJ9CcFpUTsdOc4XQ6RuZFu5oRsxFYtEF5PSu7ik11h58fyeoaWOr1ebfkyAMawbeI2AJ5GA==}
@@ -2399,13 +2376,6 @@ packages:
     dependencies:
       '@glimmer/interfaces': 0.92.3
       '@glimmer/util': 0.92.3
-
-  /@glimmer/wire-format@0.92.0:
-    resolution: {integrity: sha512-yKhfU7b3PN86iqbfKksB+F9PB/RqbVkZlcRpZWRpEL3HnZ0bJUKC9bsOJynOg77PDXuYQXkbDMfL8ngTuxk+rg==}
-    dependencies:
-      '@glimmer/interfaces': 0.92.0
-      '@glimmer/util': 0.92.0
-    dev: true
 
   /@glimmer/wire-format@0.92.3:
     resolution: {integrity: sha512-gFz81Q9+V7Xs0X8mSq6y8qacHm0dPaGJo2/Bfcsdow1hLOKNgTCLr4XeDBhRML8f6I6Gk9ugH4QDxyIOXOpC4w==}
@@ -6196,7 +6166,7 @@ packages:
     dependencies:
       '@babel/core': 7.26.0
       '@babel/eslint-parser': 7.25.9(@babel/core@7.26.0)(eslint@8.57.1)
-      '@glimmer/syntax': 0.92.0
+      '@glimmer/syntax': 0.92.3
       content-tag: 2.0.1
       eslint-scope: 7.2.2
       html-tags: 3.3.1
@@ -6723,8 +6693,8 @@ packages:
     resolution: {integrity: sha512-Uk/TVLt6Nf6Xoz7C1iYuZjOSdJxe5aaauGRke8JhKeJwD66Y61/pY2FjtLP04Ooq9PwV34bzrkKkU2UZ5FtDRA==}
     dev: true
 
-  /eslint-plugin-ember@12.2.1(@babel/core@7.26.0)(eslint@8.57.1):
-    resolution: {integrity: sha512-HZZueTKXmQRDVxREiMLdh87sLFmmkjH3z37gsS0pLWtnZECJiG447GCd+odVgWpSKoDpB4Hce0BtoJeY2HGSlg==}
+  /eslint-plugin-ember@12.3.1(@babel/core@7.26.0)(eslint@8.57.1):
+    resolution: {integrity: sha512-Ew8E7R0inU7HSQZ7ChixLvv4y3wtyC++9DYBmAYyjtRoM+p/PwP2kUkyKYJTLi5v5IuSR+fS3IWtbswoq9bPyQ==}
     engines: {node: 18.* || 20.* || >= 21}
     peerDependencies:
       '@typescript-eslint/parser': '*'
