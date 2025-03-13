@@ -4,7 +4,7 @@ import {
   parseTouchData,
   isHorizontal,
   isVertical,
-} from '../utils/parse-touch-data';
+} from '../utils/parse-touch-data.js';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
 

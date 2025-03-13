@@ -1,35 +1,23 @@
 {
   "private": true,
-  "repository": "https://github.com/nickschot/ember-gesture-modifiers",
+  "repository": "",
   "license": "MIT",
-  "author": "Nick Schot <nick@sophorasoft.nl>",
+  "author": "",
   "scripts": {
     "build": "pnpm --filter ember-gesture-modifiers build",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "prepare": "pnpm build",
+    "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefixColors auto",
     "start:addon": "pnpm --filter ember-gesture-modifiers start --no-watch.clearScreen",
     "start:test-app": "pnpm --filter test-app start",
     "test": "pnpm --filter '*' test",
     "test:ember": "pnpm --filter '*' test:ember"
   },
+  "packageManager": "pnpm@10.6.3+sha512.bb45e34d50a9a76e858a95837301bfb6bd6d35aea2c5d52094fa497a467c43f5c440103ce2511e9e0a2f89c3d6071baac3358fc68ac6fb75e2ceb3d2736065e6",
   "devDependencies": {
-    "concurrently": "8.2.2",
-    "prettier": "3.3.3",
-    "prettier-plugin-ember-template-tag": "2.0.2",
-    "release-plan": "0.9.2"
-  },
-  "engines": {
-    "node": ">= 18"
-  },
-  "volta": {
-    "node": "18.20.4",
-    "pnpm": "8.15.9"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/eslint": "^9.0.0"
-    }
-  },
-  "packageManager": "pnpm@10.6.0+sha512.df0136e797db0cfa7ec1084e77f3bdf81bacbae9066832fbf95cba4c2140ad05e64f316cde51ce3f99ea00a91ffc702d6aedd3c0f450f895e3e7c052fe573cd8"
+    "concurrently": "^9.1.2",
+    "prettier": "^3.0.3",
+    "prettier-plugin-ember-template-tag": "^2.0.2"
+  }
 }

@@ -1,1 +1,1 @@
-export { default as pan } from './pan';
+export { default as pan } from './pan.js';
