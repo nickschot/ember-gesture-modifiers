@@ -82,10 +82,5 @@
   },
   "ember": {
     "edition": "octane"
-  },
-  "dependenciesMeta": {
-    "ember-gesture-modifiers": {
-      "injected": true
-    }
   }
 }
