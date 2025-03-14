@@ -11,17 +11,11 @@
   "packageRules": [
     {
       "matchCurrentVersion": ">= 1.0.0",
-      "updateTypes": [
-        "minor"
-      ],
+      "matchUpdateTypes": ["minor"],
       "automerge": true
     },
     {
-      "packageNames": [
-        "ember-cli",
-        "ember-data",
-        "ember-source"
-      ],
+      "matchPackageNames": ["ember-cli", "ember-data", "ember-source"],
       "separateMinorPatch": true
     }
   ]
