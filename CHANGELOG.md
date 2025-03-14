@@ -1,5 +1,19 @@
 # Changelog
 
+## Release (2025-03-14)
+
+* ember-gesture-modifiers 6.1.0 (minor)
+
+#### :rocket: Enhancement
+* `ember-gesture-modifiers`
+  * [#854](https://github.com/nickschot/ember-gesture-modifiers/pull/854) Update v2 addon blueprint (inc. decorator-transforms) ([@nickschot](https://github.com/nickschot))
+
+#### :house: Internal
+* [#648](https://github.com/nickschot/ember-gesture-modifiers/pull/648) Setup release-plan ([@nickschot](https://github.com/nickschot))
+
+#### Committers: 1
+- Nick Schot ([@nickschot](https://github.com/nickschot))
+
 
 ## v6.0.1 (2023-12-21)
 
