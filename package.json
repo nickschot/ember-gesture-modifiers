@@ -1,8 +1,8 @@
 {
   "private": true,
-  "repository": "",
+  "repository": "https://github.com/nickschot/ember-gesture-modifiers",
   "license": "MIT",
-  "author": "",
+  "author": "Nick Schot <nick@sophorasoft.nl>",
   "scripts": {
     "build": "pnpm --filter ember-gesture-modifiers build",
     "lint": "pnpm --filter '*' lint",
