@@ -7,7 +7,7 @@
     "build": "pnpm --filter ember-gesture-modifiers build",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "prepack": "pnpm build",
+    "prepare": "pnpm build",
     "start": "concurrently 'pnpm:start:*' --restart-after 5000 --prefixColors auto",
     "start:addon": "pnpm --filter ember-gesture-modifiers start --no-watch.clearScreen",
     "start:test-app": "pnpm --filter test-app start",
