@@ -79,6 +79,7 @@ jobs:
           cache: pnpm
       - run: echo "inject-workspace-packages=true" > .npmrc
       - run: echo "sync-injected-deps-after-scripts[]=build" > .npmrc
+      - run: cat .npmrc
       - name: Install Dependencies
         run: pnpm install --no-frozen-lockfile
       - name: Run Tests
