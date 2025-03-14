@@ -54,7 +54,6 @@ module('Integration | Modifier | did-pan', function (hooks) {
     });
   }
 
-  // eslint-disable-next-line qunit/require-expect
   test(`it fires the passed hooks when the custom threshold is met`, async function (assert) {
     assert.expect(2);
 
