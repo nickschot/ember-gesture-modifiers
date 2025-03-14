@@ -1,5 +1,5 @@
 import { settled, getRootElement } from '@ember/test-helpers';
-import createPointerEvent from './create-pointer-event';
+import createPointerEvent from './create-pointer-event.js';
 
 function timeout(duration) {
   return new Promise((resolve) => {
