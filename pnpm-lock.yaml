@@ -95,6 +95,9 @@ importers:
         version: 3.5.0
 
   test-app:
+    dependenciesMeta:
+      ember-gesture-modifiers:
+        injected: true
     devDependencies:
       '@babel/core':
         specifier: ^7.26.7
@@ -167,7 +170,7 @@ importers:
         version: 8.1.2(encoding@0.1.13)
       ember-gesture-modifiers:
         specifier: workspace:*
-        version: link:../ember-gesture-modifiers
+        version: file:ember-gesture-modifiers(@babel/core@7.26.10)(@ember/test-helpers@4.0.5(@babel/core@7.26.10)(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0)))(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))
       ember-load-initializers:
         specifier: ^3.0.1
         version: 3.0.1(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))
@@ -3101,6 +3104,15 @@ packages:
   ember-fetch@8.1.2:
     resolution: {integrity: sha512-TVx24/jrvDIuPL296DV0hBwp7BWLcSMf0I8464KGz01sPytAB+ZAePbc9ooBTJDkKZEGFgatJa4nj3yF1S9Bpw==}
     engines: {node: '>= 10'}
+
+  ember-gesture-modifiers@file:ember-gesture-modifiers:
+    resolution: {directory: ember-gesture-modifiers, type: directory}
+    peerDependencies:
+      '@ember/test-helpers': '>=3.0.0'
+      ember-source: '>= 3.28.0'
+    peerDependenciesMeta:
+      '@ember/test-helpers':
+        optional: true
 
   ember-load-initializers@3.0.1:
     resolution: {integrity: sha512-qV3vxJKw5+7TVDdtdLPy8PhVsh58MlK8jwzqh5xeOwJPNP7o0+BlhvwoIlLYTPzGaHdfjEIFCgVSyMRGd74E1g==}
@@ -10703,6 +10715,18 @@ snapshots:
       whatwg-fetch: 3.6.20
     transitivePeerDependencies:
       - encoding
+      - supports-color
+
+  ember-gesture-modifiers@file:ember-gesture-modifiers(@babel/core@7.26.10)(@ember/test-helpers@4.0.5(@babel/core@7.26.10)(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0)))(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0)):
+    dependencies:
+      '@embroider/addon-shim': 1.9.0
+      decorator-transforms: 2.3.0(@babel/core@7.26.10)
+      ember-modifier: 4.2.0(@babel/core@7.26.10)(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))
+      ember-source: 6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0)
+    optionalDependencies:
+      '@ember/test-helpers': 4.0.5(@babel/core@7.26.10)(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))
+    transitivePeerDependencies:
+      - '@babel/core'
       - supports-color
 
   ember-load-initializers@3.0.1(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0)):

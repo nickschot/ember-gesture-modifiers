@@ -77,6 +77,11 @@
     "tracked-built-ins": "^3.4.0",
     "webpack": "^5.97.1"
   },
+  "dependenciesMeta": {
+    "ember-gesture-modifiers": {
+      "injected": true
+    }
+  },
   "engines": {
     "node": ">= 18"
   },
