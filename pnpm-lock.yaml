@@ -43,8 +43,8 @@ importers:
         specifier: 7.27.0
         version: 7.27.0
       '@embroider/addon-dev':
-        specifier: 7.1.3
-        version: 7.1.3(rollup@4.39.0)
+        specifier: 7.1.4
+        version: 7.1.4(rollup@4.39.0)
       '@eslint/js':
         specifier: 9.23.0
         version: 9.23.0
@@ -883,8 +883,8 @@ packages:
   '@ember/test-waiters@4.1.0':
     resolution: {integrity: sha512-qRFA0OumYv7/C3hmx4ETC2dlPzyD549D+naPhcrnV2xCnc3AZlKouWyoFnNF+Cje918kRp9aEefVgV3vmGL5Bg==}
 
-  '@embroider/addon-dev@7.1.3':
-    resolution: {integrity: sha512-19Zipr91mt7lsXjZGNZpFp9eTb8dXUzUg0hZy9S3EsjqJxrhL5zOdpRFNpDJeCeNtmFSPh+CWMQU5bc2k/zWhw==}
+  '@embroider/addon-dev@7.1.4':
+    resolution: {integrity: sha512-HoyU9CyY8bTi44nshqx8L2w6A1cQ2l+3W4gIFszWJt2wGn1iVSLs9dfozSCrC51FKWJk+tAMs5Y1Epfx4u/o/Q==}
     engines: {node: 12.* || 14.* || >= 16}
     hasBin: true
     peerDependencies:
@@ -7558,7 +7558,7 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  '@embroider/addon-dev@7.1.3(rollup@4.39.0)':
+  '@embroider/addon-dev@7.1.4(rollup@4.39.0)':
     dependencies:
       '@embroider/core': 3.5.5
       '@rollup/pluginutils': 4.2.1
