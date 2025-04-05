@@ -1,5 +1,10 @@
 # Changelog
 
+
+
+
+
+
 ## Release (2025-03-14)
 
 * ember-gesture-modifiers 6.1.0 (minor)
