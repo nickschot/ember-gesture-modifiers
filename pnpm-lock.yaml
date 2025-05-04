@@ -61,8 +61,8 @@ importers:
         specifier: 6.4.0
         version: 6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
       ember-template-lint:
-        specifier: 7.4.0
-        version: 7.4.0(@babel/core@7.27.1)
+        specifier: 7.4.1
+        version: 7.4.1(@babel/core@7.27.1)
       eslint:
         specifier: 9.26.0
         version: 9.26.0
@@ -190,8 +190,8 @@ importers:
         specifier: 4.3.0
         version: 4.3.0
       ember-template-lint:
-        specifier: 7.4.0
-        version: 7.4.0(@babel/core@7.27.1)
+        specifier: 7.4.1
+        version: 7.4.1(@babel/core@7.27.1)
       ember-try:
         specifier: 4.0.0
         version: 4.0.0(encoding@0.1.13)
@@ -423,11 +423,6 @@ packages:
   '@babel/helpers@7.27.1':
     resolution: {integrity: sha512-FCvFTm0sWV8Fxhpp2McP5/W53GPllQ9QeQ7SiqGWjMf/LVG07lFa5+pgK05IRhVwtvafT22KF+ZSnM9I545CvQ==}
     engines: {node: '>=6.9.0'}
-
-  '@babel/parser@7.27.0':
-    resolution: {integrity: sha512-iaepho73/2Pz7w2eMS0Q5f83+0RKI7i4xmiYeBmDzfRVbQtTOG7Ts0S4HzJVsTMGI9keU8rNfuZr8DKfSt7Yyg==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
 
   '@babel/parser@7.27.1':
     resolution: {integrity: sha512-I0dZ3ZpCrJ1c04OqlNsQcKiZlsrXf/kkE4FXzID9rIOYICsAbA8mMDzhW/luRNAHdCNt7os/u8wenklZDlUVUQ==}
@@ -3132,8 +3127,8 @@ packages:
     resolution: {integrity: sha512-jZ5D6KLKU8up/AynZltmKh4lkXBPgTGSPgomprI/55XvIVqn42UNUpEz7ra/mO3QiGODDZOUesbggPe49i38sQ==}
     engines: {node: 16.* || >= 18}
 
-  ember-template-lint@7.4.0:
-    resolution: {integrity: sha512-jLNQZlb4fHnWO5cu8YzeTefIlU6fyJ9IhXjdZ4MgYQ4fQauo39mUMmAa/dCLglrYuRYvSfzKfcAcPG5L4utwfQ==}
+  ember-template-lint@7.4.1:
+    resolution: {integrity: sha512-TPOAmVnaW9Rv6JtBt+aHatjXNnPn7s56TI1Ie3OF2RbZbnTe9dOz3ztEQCD2AXe4gNKXRMSrilNXOKZpZRcDGg==}
     engines: {node: ^18.18.0 || >= 20.9.0}
     hasBin: true
 
@@ -7201,10 +7196,6 @@ snapshots:
       '@babel/template': 7.27.1
       '@babel/types': 7.27.1
 
-  '@babel/parser@7.27.0':
-    dependencies:
-      '@babel/types': 7.27.0
-
   '@babel/parser@7.27.1':
     dependencies:
       '@babel/types': 7.27.1
@@ -7908,8 +7899,8 @@ snapshots:
   '@embroider/core@3.5.6':
     dependencies:
       '@babel/core': 7.27.1
-      '@babel/parser': 7.27.0
-      '@babel/traverse': 7.27.0
+      '@babel/parser': 7.27.1
+      '@babel/traverse': 7.27.1
       '@embroider/macros': 1.16.13
       '@embroider/shared-internals': 2.9.0
       assert-never: 1.4.0
@@ -10795,7 +10786,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-template-lint@7.4.0(@babel/core@7.27.1):
+  ember-template-lint@7.4.1(@babel/core@7.27.1):
     dependencies:
       '@babel/generator': 7.27.1
       '@babel/parser': 7.27.1
