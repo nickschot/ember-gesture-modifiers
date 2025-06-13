@@ -76,8 +76,8 @@ importers:
         specifier: 2.31.0
         version: 2.31.0(eslint@9.28.0)
       eslint-plugin-n:
-        specifier: 17.19.0
-        version: 17.19.0(eslint@9.28.0)
+        specifier: 17.20.0
+        version: 17.20.0(eslint@9.28.0)
       globals:
         specifier: 16.2.0
         version: 16.2.0
@@ -205,8 +205,8 @@ importers:
         specifier: 12.5.0
         version: 12.5.0(@babel/core@7.27.4)(eslint@9.28.0)
       eslint-plugin-n:
-        specifier: 17.19.0
-        version: 17.19.0(eslint@9.28.0)
+        specifier: 17.20.0
+        version: 17.20.0(eslint@9.28.0)
       eslint-plugin-prettier:
         specifier: 5.4.1
         version: 5.4.1(@types/eslint@9.6.1)(eslint-config-prettier@10.1.5(eslint@9.28.0))(eslint@9.28.0)(prettier@3.5.3)
@@ -3215,8 +3215,8 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  eslint-plugin-n@17.19.0:
-    resolution: {integrity: sha512-qxn1NaDHtizbhVAPpbMT8wWFaLtPnwhfN/e+chdu2i6Vgzmo/tGM62tcJ1Hf7J5Ie4dhse3DOPMmDxduzfifzw==}
+  eslint-plugin-n@17.20.0:
+    resolution: {integrity: sha512-IRSoatgB/NQJZG5EeTbv/iAx1byOGdbbyhQrNvWdCfTnmPxUT0ao9/eGOeG7ljD8wJBsxwE8f6tES5Db0FRKEw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.23.0'
@@ -10690,7 +10690,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-n@17.19.0(eslint@9.28.0):
+  eslint-plugin-n@17.20.0(eslint@9.28.0):
     dependencies:
       '@eslint-community/eslint-utils': 4.7.0(eslint@9.28.0)
       '@typescript-eslint/utils': 8.33.1(eslint@9.28.0)
