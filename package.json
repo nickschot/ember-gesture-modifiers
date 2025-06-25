@@ -17,7 +17,7 @@
   "packageManager": "pnpm@10.12.3+sha512.467df2c586056165580ad6dfb54ceaad94c5a30f80893ebdec5a44c5aa73c205ae4a5bb9d5ed6bb84ea7c249ece786642bbb49d06a307df218d03da41c317417",
   "devDependencies": {
     "concurrently": "9.2.0",
-    "prettier": "3.6.0",
+    "prettier": "3.6.1",
     "prettier-plugin-ember-template-tag": "2.0.6",
     "release-plan": "0.16.0"
   }
