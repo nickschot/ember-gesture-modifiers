@@ -130,8 +130,8 @@ importers:
         specifier: 9.2.1
         version: 9.2.1
       ember-auto-import:
-        specifier: 2.11.1
-        version: 2.11.1(webpack@5.102.1)
+        specifier: 2.11.2
+        version: 2.11.2(webpack@5.102.1)
       ember-cli:
         specifier: 6.8.0
         version: 6.8.0(@types/node@24.9.2)(handlebars@4.7.8)(underscore@1.13.7)
@@ -2901,8 +2901,8 @@ packages:
   electron-to-chromium@1.5.244:
     resolution: {integrity: sha512-OszpBN7xZX4vWMPJwB9illkN/znA8M36GQqQxi6MNy9axWxhOfJyZZJtSLQCpEFLHP2xK33BiWx9aIuIEXVCcw==}
 
-  ember-auto-import@2.11.1:
-    resolution: {integrity: sha512-teiDrL6J5nUbwQ6AZ29qKRibdkDYrdY8YNXhJNwnnso3mgqZjvWW5TA0W2HdB0gTSz1BcTg9kWJi45zn04b+IA==}
+  ember-auto-import@2.11.2:
+    resolution: {integrity: sha512-eR67ggmPQ6Upx6Smbur0HTRYqQshyxJMKPkWBHwWZmZ8sOA5piR0raL7ccKO0Hrn4ZEkp8ih24yAwvssb6K4NQ==}
     engines: {node: 12.* || 14.* || >= 16}
 
   ember-cli-app-version@7.0.0:
@@ -9968,7 +9968,7 @@ snapshots:
 
   electron-to-chromium@1.5.244: {}
 
-  ember-auto-import@2.11.1(webpack@5.102.1):
+  ember-auto-import@2.11.2(webpack@5.102.1):
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.28.5)
