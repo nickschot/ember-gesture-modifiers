@@ -18,7 +18,7 @@
   "devDependencies": {
     "concurrently": "9.2.1",
     "prettier": "3.7.3",
-    "prettier-plugin-ember-template-tag": "2.1.0",
+    "prettier-plugin-ember-template-tag": "2.1.1",
     "release-plan": "0.16.0"
   }
 }
