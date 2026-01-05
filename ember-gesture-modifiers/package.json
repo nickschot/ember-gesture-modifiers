@@ -58,7 +58,7 @@
     "globals": "16.5.0",
     "prettier": "3.7.4",
     "prettier-plugin-ember-template-tag": "2.1.2",
-    "rollup": "4.54.0",
+    "rollup": "4.55.1",
     "rollup-plugin-copy": "3.5.0"
   },
   "peerDependencies": {
