@@ -1,0 +1,83 @@
+{
+  "name": "ember-gesture-modifiers",
+  "version": "6.1.0",
+  "description": "Addon that provides gestures as modifiers.",
+  "keywords": [
+    "ember-addon",
+    "gestures"
+  ],
+  "repository": "https://github.com/nickschot/ember-gesture-modifiers",
+  "license": "MIT",
+  "author": "Nick Schot <nick@sophorasoft.nl>",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js",
+    "./test-support": "./dist/test-support/index.js",
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup --config",
+    "format": "prettier . --cache --write",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
+    "lint:format": "prettier . --cache --check",
+    "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
+    "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "start": "rollup --config --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.8.9",
+    "decorator-transforms": "^2.2.2",
+    "ember-modifier": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.28.6",
+    "@babel/eslint-parser": "7.28.6",
+    "@babel/runtime": "7.28.6",
+    "@embroider/addon-dev": "7.1.6",
+    "@eslint/js": "9.39.2",
+    "@rollup/plugin-babel": "6.1.0",
+    "babel-plugin-ember-template-compilation": "2.4.1",
+    "concurrently": "9.2.1",
+    "ember-source": "6.10.0",
+    "ember-template-lint": "7.9.3",
+    "eslint": "9.39.2",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-ember": "12.7.5",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-n": "17.23.2",
+    "globals": "16.5.0",
+    "prettier": "3.8.0",
+    "prettier-plugin-ember-template-tag": "2.1.2",
+    "rollup": "4.55.1",
+    "rollup-plugin-copy": "3.5.0"
+  },
+  "peerDependencies": {
+    "ember-source": ">= 3.28.0",
+    "@ember/test-helpers": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@ember/test-helpers": {
+      "optional": true
+    }
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "version": 2,
+    "type": "addon",
+    "main": "addon-main.cjs",
+    "app-js": {
+      "./modifiers/did-pan.js": "./dist/_app_/modifiers/did-pan.js"
+    }
+  }
+}
