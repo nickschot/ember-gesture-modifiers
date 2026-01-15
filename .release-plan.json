@@ -1,18 +1,8 @@
 {
   "solution": {
     "ember-gesture-modifiers": {
-      "impact": "minor",
-      "oldVersion": "6.0.1",
-      "newVersion": "6.1.0",
-      "tagName": "latest",
-      "constraints": [
-        {
-          "impact": "minor",
-          "reason": "Appears in changelog section :rocket: Enhancement"
-        }
-      ],
-      "pkgJSONPath": "./ember-gesture-modifiers/package.json"
+      "oldVersion": "6.1.0"
     }
   },
-  "description": "## Release (2025-03-14)\n\n* ember-gesture-modifiers 6.1.0 (minor)\n\n#### :rocket: Enhancement\n* `ember-gesture-modifiers`\n  * [#854](https://github.com/nickschot/ember-gesture-modifiers/pull/854) Update v2 addon blueprint (inc. decorator-transforms) ([@nickschot](https://github.com/nickschot))\n\n#### :house: Internal\n* [#648](https://github.com/nickschot/ember-gesture-modifiers/pull/648) Setup release-plan ([@nickschot](https://github.com/nickschot))\n\n#### Committers: 1\n- Nick Schot ([@nickschot](https://github.com/nickschot))\n"
+  "description": "\n\n\n\n"
 }
