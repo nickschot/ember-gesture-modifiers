@@ -58,8 +58,8 @@ importers:
         specifier: 9.2.1
         version: 9.2.1
       ember-source:
-        specifier: 6.10.0
-        version: 6.10.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
+        specifier: 6.10.1
+        version: 6.10.1(@glimmer/component@2.0.0)(rsvp@4.8.5)
       ember-template-lint:
         specifier: 7.9.3
         version: 7.9.3
@@ -137,7 +137,7 @@ importers:
         version: 6.9.1(@types/node@25.0.6)(handlebars@4.7.8)(underscore@1.13.7)
       ember-cli-app-version:
         specifier: 7.0.0
-        version: 7.0.0(ember-source@6.10.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+        version: 7.0.0(ember-source@6.10.1(@glimmer/component@2.0.0)(rsvp@4.8.5))
       ember-cli-babel:
         specifier: 8.2.0
         version: 8.2.0(@babel/core@7.28.6)
@@ -167,7 +167,7 @@ importers:
         version: link:../ember-gesture-modifiers
       ember-load-initializers:
         specifier: 3.0.1
-        version: 3.0.1(ember-source@6.10.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+        version: 3.0.1(ember-source@6.10.1(@glimmer/component@2.0.0)(rsvp@4.8.5))
       ember-modifier:
         specifier: 4.2.2
         version: 4.2.2(@babel/core@7.28.6)
@@ -181,8 +181,8 @@ importers:
         specifier: 13.1.1
         version: 13.1.1
       ember-source:
-        specifier: 6.10.0
-        version: 6.10.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
+        specifier: 6.10.1
+        version: 6.10.1(@glimmer/component@2.0.0)(rsvp@4.8.5)
       ember-source-channel-url:
         specifier: 3.0.0
         version: 3.0.0(encoding@0.1.13)
@@ -1665,6 +1665,7 @@ packages:
   '@xmldom/xmldom@0.8.11':
     resolution: {integrity: sha512-cQzWCtO6C8TQiYl1ruKNn2U6Ao4o4WBBcbL61yJl84x+j5sOWWFU9X7DpND8XZG3daDppSsigMdfAIl2upQBRw==}
     engines: {node: '>=10.0.0'}
+    deprecated: this version has critical issues, please update to the latest version
 
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -2271,6 +2272,7 @@ packages:
 
   charm@1.0.2:
     resolution: {integrity: sha512-wqW3VdPnlSWT4eRiYX+hcs+C6ViBPUWk1qTCd+37qw9kEm/a5n2qcyQDMBWvSYKN/ctqZzeXNQaeBjOetJJUkw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   chownr@2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
@@ -3001,8 +3003,8 @@ packages:
     engines: {node: 10.* || 12.* || >= 14}
     hasBin: true
 
-  ember-source@6.10.0:
-    resolution: {integrity: sha512-2oCxVajWrOIt2MGZRGLBSBSAO/yM/bHG4+cb1b9DTpbdGKkwHVRqs3XGg8L7HOGseCNMvMdgH4RZW3fqodbgTg==}
+  ember-source@6.10.1:
+    resolution: {integrity: sha512-23tmGxW4Q58nGlz2HxqVeOoMKlT6z9L0f2ELsoLReynybZHE3uPh6NAZ6uGivYOH3K8QCACUItfumut6eCy4qA==}
     engines: {node: '>= 20.19'}
     peerDependencies:
       '@glimmer/component': '>= 1.1.2'
@@ -3263,6 +3265,7 @@ packages:
   eslint@9.39.2:
     resolution: {integrity: sha512-LEyamqS7W5HB3ujJyvi0HQK/dtVINZvd5mAAp9eT5S/ujByGjiZLCzPcHVzuXbpJDJF/cxwHlfceVUDZ2lnSTw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -6252,6 +6255,7 @@ packages:
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   validate-npm-package-license@3.0.4:
@@ -6684,7 +6688,7 @@ snapshots:
       '@babel/core': 7.28.6
       '@babel/helper-annotate-as-pure': 7.27.3
       '@babel/helper-wrap-function': 7.28.3
-      '@babel/traverse': 7.28.5
+      '@babel/traverse': 7.28.6
     transitivePeerDependencies:
       - supports-color
 
@@ -6722,7 +6726,7 @@ snapshots:
   '@babel/helper-wrap-function@7.28.3':
     dependencies:
       '@babel/template': 7.27.2
-      '@babel/traverse': 7.28.5
+      '@babel/traverse': 7.28.6
       '@babel/types': 7.28.5
     transitivePeerDependencies:
       - supports-color
@@ -9695,10 +9699,10 @@ snapshots:
       - supports-color
       - webpack
 
-  ember-cli-app-version@7.0.0(ember-source@6.10.0(@glimmer/component@2.0.0)(rsvp@4.8.5)):
+  ember-cli-app-version@7.0.0(ember-source@6.10.1(@glimmer/component@2.0.0)(rsvp@4.8.5)):
     dependencies:
       ember-cli-babel: 7.26.11
-      ember-source: 6.10.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
+      ember-source: 6.10.1(@glimmer/component@2.0.0)(rsvp@4.8.5)
       git-repo-info: 2.1.1
     transitivePeerDependencies:
       - supports-color
@@ -10093,9 +10097,9 @@ snapshots:
       - encoding
       - supports-color
 
-  ember-load-initializers@3.0.1(ember-source@6.10.0(@glimmer/component@2.0.0)(rsvp@4.8.5)):
+  ember-load-initializers@3.0.1(ember-source@6.10.1(@glimmer/component@2.0.0)(rsvp@4.8.5)):
     dependencies:
-      ember-source: 6.10.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
+      ember-source: 6.10.1(@glimmer/component@2.0.0)(rsvp@4.8.5)
 
   ember-modifier@4.2.2(@babel/core@7.28.6):
     dependencies:
@@ -10135,8 +10139,8 @@ snapshots:
 
   ember-router-generator@2.0.0:
     dependencies:
-      '@babel/parser': 7.28.5
-      '@babel/traverse': 7.28.5
+      '@babel/parser': 7.28.6
+      '@babel/traverse': 7.28.6
       recast: 0.18.10
     transitivePeerDependencies:
       - supports-color
@@ -10147,7 +10151,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  ember-source@6.10.0(@glimmer/component@2.0.0)(rsvp@4.8.5):
+  ember-source@6.10.1(@glimmer/component@2.0.0)(rsvp@4.8.5):
     dependencies:
       '@babel/core': 7.28.6
       '@ember/edition-utils': 1.2.0
@@ -12882,7 +12886,7 @@ snapshots:
   remove-types@1.0.0:
     dependencies:
       '@babel/core': 7.28.6
-      '@babel/plugin-syntax-decorators': 7.27.1(@babel/core@7.28.6)
+      '@babel/plugin-syntax-decorators': 7.28.6(@babel/core@7.28.6)
       '@babel/plugin-transform-typescript': 7.28.5(@babel/core@7.28.6)
       prettier: 2.8.8
     transitivePeerDependencies:
